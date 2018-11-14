@@ -1,0 +1,9 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "03fc9eb35183a4b25093650033afc0fa"
+build_time: [1542094840, 311775000]
+inputs:
+  "/Users/nguyenductai/Desktop/Chat-Messenger-Clone/Chat-Messenger-Clone/Controllers/ViewController.swift": [1541955619, 0]
+  "/Users/nguyenductai/Desktop/Chat-Messenger-Clone/Chat-Messenger-Clone/Controllers/ChatViewController.swift": [1542094840, 0]
+  "/Users/nguyenductai/Desktop/Chat-Messenger-Clone/Chat-Messenger-Clone/Views/Chat VC/ChatTableViewCell.swift": [1542093786, 0]
+  "/Users/nguyenductai/Desktop/Chat-Messenger-Clone/Chat-Messenger-Clone/Controllers/AppDelegate.swift": [1541943321, 0]
+  "/Users/nguyenductai/Desktop/Chat-Messenger-Clone/Chat-Messenger-Clone/Views/Chat VC/BottomChatView.swift": [1542093973, 0]
