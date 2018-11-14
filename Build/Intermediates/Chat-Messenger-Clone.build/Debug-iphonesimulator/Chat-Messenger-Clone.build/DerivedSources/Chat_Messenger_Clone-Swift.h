@@ -163,6 +163,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_DEPRECATED_OBJC(Msg) SWIFT_DEPRECATED_MSG(Msg)
 #endif
 #if __has_feature(modules)
+@import AVFoundation;
 @import CoreGraphics;
 @import Foundation;
 @import UIKit;
@@ -198,26 +199,41 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITextField;
-@class UIButton;
+@class UITextView;
 @class NSLayoutConstraint;
+@class UIButton;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC20Chat_Messenger_Clone14BottomChatView")
 @interface BottomChatView : UIView
-@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified chatTextField;
+@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified chatTextView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified chatTextViewLeading;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified sendButton;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified chatTextFieldLeading;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified chatTextViewHeight;
 - (void)awakeFromNib;
+- (IBAction)cameraClickButton:(id _Nonnull)sender;
 - (IBAction)sendPressButton:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-@interface BottomChatView (SWIFT_EXTENSION(Chat_Messenger_Clone)) <UITextFieldDelegate>
-- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
-- (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
+@interface BottomChatView (SWIFT_EXTENSION(Chat_Messenger_Clone)) <UITextViewDelegate>
+- (void)textViewDidChange:(UITextView * _Nonnull)textView;
+- (void)textViewDidEndEditing:(UITextView * _Nonnull)textView;
+- (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
+@end
+
+@class NSBundle;
+
+SWIFT_CLASS("_TtC20Chat_Messenger_Clone21CaptureViewController")
+@interface CaptureViewController : UIViewController <AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate>
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface CaptureViewController (SWIFT_EXTENSION(Chat_Messenger_Clone)) <AVCaptureVideoDataOutputSampleBufferDelegate>
 @end
 
 @class UILabel;
@@ -233,13 +249,13 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone17ChatTableViewCell")
 @end
 
 @class UITableView;
-@class NSBundle;
 
 SWIFT_CLASS("_TtC20Chat_Messenger_Clone18ChatViewController")
 @interface ChatViewController : UIViewController
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified tableViewTopHeight;
 @property (nonatomic, weak) IBOutlet BottomChatView * _Null_unspecified bottomView;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified chatTableView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified bottomViewBottom;
 - (void)viewDidLoad;
 - (void)tableViewTapped;
 - (void)keyboardWillShow:(NSNotification * _Nonnull)notification;
@@ -248,14 +264,14 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone18ChatViewController")
 @end
 
 
-
-
 @interface ChatViewController (SWIFT_EXTENSION(Chat_Messenger_Clone)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
+
+
 
 
 SWIFT_CLASS("_TtC20Chat_Messenger_Clone14ViewController")

@@ -57,12 +57,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zdx-7i-ijW">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="686"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-
-
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="686" id="htm-Fh-9jS"/>
-                                </constraints>
-
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" id="7tg-T9-kst">
@@ -90,20 +84,14 @@
                             <constraint firstItem="gIj-fj-HZD" firstAttribute="top" secondItem="Zdx-7i-ijW" secondAttribute="bottom" id="HiU-JQ-BW9"/>
                             <constraint firstItem="gIj-fj-HZD" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="Hlj-Bt-goN"/>
                             <constraint firstAttribute="trailing" secondItem="gIj-fj-HZD" secondAttribute="trailing" id="MaH-gl-U8l"/>
-
                             <constraint firstItem="qdZ-Yg-iDE" firstAttribute="top" secondItem="gIj-fj-HZD" secondAttribute="bottom" id="OyP-y7-wKk"/>
-
-
                             <constraint firstItem="Zdx-7i-ijW" firstAttribute="top" secondItem="Xc3-Cx-ugA" secondAttribute="top" id="iR6-rX-T8C"/>
                             <constraint firstItem="Zdx-7i-ijW" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="o0j-vS-pzH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomView" destination="gIj-fj-HZD" id="Pvx-Az-n0Q"/>
-
                         <outlet property="bottomViewBottom" destination="OyP-y7-wKk" id="Z6N-I9-48f"/>
-
-
                         <outlet property="chatTableView" destination="Zdx-7i-ijW" id="nDB-QN-TrG"/>
                         <outlet property="tableViewTopHeight" destination="iR6-rX-T8C" id="L91-A1-Ngy"/>
                     </connections>
@@ -111,6 +99,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1FS-oG-J7S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2048.8000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--Capture View Controller-->
+        <scene sceneID="tgD-YH-roc">
+            <objects>
+                <viewController storyboardIdentifier="CaptureViewController" id="aDT-BE-mCf" customClass="CaptureViewController" customModule="Chat_Messenger_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KLN-8A-rav"/>
+                        <viewControllerLayoutGuide type="bottom" id="19T-kQ-r9A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WlA-C3-1Rz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4xQ-bJ-EcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2855" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WYR-9m-XOn">

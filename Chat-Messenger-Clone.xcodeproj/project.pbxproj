@@ -16,6 +16,7 @@
 		CF6ED82921986D4F00625628 /* BottomChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6ED82821986D4F00625628 /* BottomChatView.swift */; };
 		CF6ED82C2198823700625628 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6ED82A2198823700625628 /* ChatTableViewCell.swift */; };
 		CF6ED82D2198823700625628 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6ED82B2198823700625628 /* ChatTableViewCell.xib */; };
+		CFB7B7F9219C504C00B4BC59 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB7B7F8219C504C00B4BC59 /* CaptureViewController.swift */; };
 		CFCB0921219C2E9E0072F1C8 /* BottomChatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFCB0920219C2E9E0072F1C8 /* BottomChatView.xib */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		CF6ED82821986D4F00625628 /* BottomChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomChatView.swift; sourceTree = "<group>"; };
 		CF6ED82A2198823700625628 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		CF6ED82B2198823700625628 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		CFB7B7F8219C504C00B4BC59 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		CFCB0920219C2E9E0072F1C8 /* BottomChatView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomChatView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 				CF6ED80E2198679900625628 /* AppDelegate.swift */,
 				CF6ED8102198679900625628 /* ViewController.swift */,
 				CF6ED823219868E400625628 /* ChatViewController.swift */,
+				CFB7B7F8219C504C00B4BC59 /* CaptureViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6ED8112198679900625628 /* ViewController.swift in Sources */,
+				CFB7B7F9219C504C00B4BC59 /* CaptureViewController.swift in Sources */,
 				CF6ED824219868E400625628 /* ChatViewController.swift in Sources */,
 				CF6ED82C2198823700625628 /* ChatTableViewCell.swift in Sources */,
 				CF6ED80F2198679900625628 /* AppDelegate.swift in Sources */,

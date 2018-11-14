@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		WhOi3J0xlyUgGOFQKSZxbKINXj8=
+		aB/peGRPNVVVw2K0f04RHc0Zc18=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		qz9pe01NL/kRvKML1B1Iedf6Wkc=
+		5uQ213WXajbhg8kGTIAnXLIxOCI=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -18,15 +18,15 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		iUN0TDMj36FV5f3eeSh4QtkhWqo=
+		GAmiHrhjeIiBRbR4K1IhNW49bvg=
 		</data>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<data>
-		WEQbSGit8NKJKYm95I9WWqUf0t4=
+		vQH6D/AZ0hYXMTaUdysEHrYgjsk=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Ec7-xP-keQ-view-Xc3-Cx-ugA.nib</key>
 		<data>
-		EkoH2pZ6yDsBrDfEbgloQvSx7RQ=
+		073QOMgkE2H8eylhM/NvkwG/KU4=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -34,19 +34,19 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-3Rs-EO-X5J.nib</key>
 		<data>
-		o8eF48Sa/QSc+XaeWrIprilzTS0=
+		lnf4Xgkars+0BAFVncNk7Q/6ozo=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-Ec7-xP-keQ.nib</key>
 		<data>
-		Sm1JnJvJSrYOihVELWLNKDHOc44=
+		qWqaQpUZTIBIXEfPhgMN5dlkKAI=
 		</data>
 		<key>BottomChatView.nib</key>
 		<data>
-		pVr45x8A8KcXhXoUkqj0Xja2XlQ=
+		FrfCNg9c3vcJBpBWzyETfZBibrI=
 		</data>
 		<key>ChatTableViewCell.nib</key>
 		<data>
-		09xsa8u7pAQr96RssSkHU9PAsGg=
+		hs4n7OF+uauyjawTlJaBJTAlrI0=
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		RGaTrgInnQ3LPKfQb4CyozbmY6c=
+		VHwp73VsbPDwFL++1flrObLz7S4=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -123,14 +123,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6girFB0TmA0deGqojhv+G4uMNYWdaNbJshg+ABU9ib0=
+			AMPJ6URpsxU9OYPrjcKmqevVkpr4x9XT2Ie1+e8uJ/s=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			89hZCtcZ7a766BCaXnROhIJgKh/ynhZg+SkOUrx5HN0=
+			wTTSwJE0b7SaL0UnKoPYedwiBg9urmoywUU0a54uej4=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -144,21 +144,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CzPWg6FBuC6Rca84eCCPVPtXMjhAZOuku125FSC9kiQ=
+			B/7ZVjCqGuGELQ8jMK4pLOBZhBq7N8qXtAKD/i3g1v8=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lNKMAPiLwVsH3AZXGGCD/8y8VKqmDlTOzWx8PEjbrxs=
+			ZJ9PLwLjkKKDS66Ec5O+JtN63EPp3+BxTh/dYYmVbeI=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Ec7-xP-keQ-view-Xc3-Cx-ugA.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9Sxt5bctX+C5hnzp4EH7JzQI0OBrK4I5Y8xrM36iUG4=
+			c/pZs/GrbRsC95UHpSEd18vDJKaEkZ7yORLI0b0kp8c=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
@@ -172,28 +172,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+5sJqWI71chfxIowOSyNiMlJie/ev8bmoLeNJxbC0nY=
+			tUKshkQngg8n0bLm34DazEhbP/Rw2wl0WvL1dwxG2zI=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UIViewController-Ec7-xP-keQ.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kwB6wJxrDcCFkMNCiqONlsITZLUJK8DLuAl/7k6rUAM=
+			IWDbokIR0LoLDOWSOcGgV+EUj/WtyJKA0Y9+voWfnnc=
 			</data>
 		</dict>
 		<key>BottomChatView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K7JxgqNWnTf/9d3cgXre/mp38cQlzbBZgeiatjWgWZw=
+			qbkCb3D/Sk6HcHweRhkvANKybNjp6gv8V0torOD1vKM=
 			</data>
 		</dict>
 		<key>ChatTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6yX8StTWfnFN3NUGnlEn6CGgQb9fbcpXztL1kIAJqkw=
+			BFD4OygjHd6+m0Mfz2ayw7kfs+YZEOH7dnJcdXy7MgQ=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>

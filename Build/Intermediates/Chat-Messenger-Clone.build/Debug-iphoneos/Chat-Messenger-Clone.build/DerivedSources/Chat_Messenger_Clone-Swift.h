@@ -198,26 +198,28 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITextField;
-@class UIButton;
+@class UITextView;
 @class NSLayoutConstraint;
+@class UIButton;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC20Chat_Messenger_Clone14BottomChatView")
 @interface BottomChatView : UIView
-@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified chatTextField;
+@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified chatTextView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified chatTextViewLeading;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified sendButton;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified chatTextFieldLeading;
 - (void)awakeFromNib;
+- (IBAction)cameraClickButton:(id _Nonnull)sender;
 - (IBAction)sendPressButton:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-@interface BottomChatView (SWIFT_EXTENSION(Chat_Messenger_Clone)) <UITextFieldDelegate>
-- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
-- (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
+@interface BottomChatView (SWIFT_EXTENSION(Chat_Messenger_Clone)) <UITextViewDelegate>
+- (void)textViewDidChange:(UITextView * _Nonnull)textView;
+- (void)textViewDidEndEditing:(UITextView * _Nonnull)textView;
+- (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
 @end
 
 @class UILabel;
@@ -226,7 +228,6 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone17ChatTableViewCell")
 @interface ChatTableViewCell : UITableViewCell
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified blueView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified textLbl;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified blueViewWidth;
 - (void)awakeFromNib;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
@@ -241,14 +242,21 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone18ChatViewController")
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified tableViewTopHeight;
 @property (nonatomic, weak) IBOutlet BottomChatView * _Null_unspecified bottomView;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified chatTableView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified bottomViewBottom;
 - (void)viewDidLoad;
 - (void)tableViewTapped;
-- (void)handleKeyboard:(NSNotification * _Nonnull)notification;
+- (void)keyboardWillShow:(NSNotification * _Nonnull)notification;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
+
+@class UIImagePickerController;
+
+@interface ChatViewController (SWIFT_EXTENSION(Chat_Messenger_Clone)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+- (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> * _Nonnull)info;
+@end
 
 
 @interface ChatViewController (SWIFT_EXTENSION(Chat_Messenger_Clone)) <UITableViewDataSource, UITableViewDelegate>
