@@ -14,6 +14,7 @@
                 <outlet property="chatTextViewHeight" destination="wQO-wX-l0L" id="DdV-6m-tWF"/>
                 <outlet property="chatTextViewLeading" destination="tID-0F-5WZ" id="sah-3c-q5D"/>
                 <outlet property="sendButton" destination="bjY-ms-Tcw" id="9Ry-A1-wz9"/>
+                <outlet property="voiceButton" destination="2SH-rS-l8w" id="sxl-uf-xDa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -43,6 +44,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SH-rS-l8w">
                     <rect key="frame" x="120" y="12.5" width="25" height="25"/>
                     <state key="normal" image="voice"/>
+                    <connections>
+                        <action selector="voiceClickButton:" destination="-1" eventType="touchUpInside" id="Cjl-ZB-1IX"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjY-ms-Tcw">
                     <rect key="frame" x="367" y="9" width="32" height="32"/>
@@ -100,10 +104,10 @@
         </view>
     </objects>
     <resources>
-        <image name="add" width="15" height="15"/>
-        <image name="camera" width="13" height="13"/>
-        <image name="gallery" width="24" height="24"/>
-        <image name="send" width="32" height="32"/>
-        <image name="voice" width="25" height="25"/>
+        <image name="add" width="22.5" height="22.5"/>
+        <image name="camera" width="19.5" height="19.5"/>
+        <image name="gallery" width="36" height="36"/>
+        <image name="send" width="48" height="48"/>
+        <image name="voice" width="37.5" height="37.5"/>
     </resources>
 </document>

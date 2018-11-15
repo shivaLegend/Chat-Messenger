@@ -13,8 +13,8 @@ protocol BottomChatViewDelegate {
   
   func sendMessage()
   func openCamera()
-  func textViewDidChangedDe()
-  func textViewDidBeginEdittingDe()
+  
+    
 }
 
 
@@ -23,11 +23,12 @@ class BottomChatView: UIView {
   @IBOutlet weak var chatTextView: UITextView!
   @IBOutlet weak var chatTextViewLeading: NSLayoutConstraint!
   
-  @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var voiceButton: UIButton!
+    @IBOutlet weak var sendButton: UIButton!
   
   @IBOutlet weak var chatTextViewHeight: NSLayoutConstraint!
   var delegate: BottomChatViewDelegate?
-  
+  let maxHeightTextView: CGFloat = 70
   var minHeightTextView: CGFloat!
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -55,20 +56,54 @@ class BottomChatView: UIView {
   @IBAction func sendPressButton(_ sender: UIButton) {
     delegate?.sendMessage()
     sendButton.isEnabled = false
+    
   }
+    @IBAction func voiceClickButton(_ sender: Any) {
+        print("click voice")
+    }
 }
 
 extension BottomChatView: UITextViewDelegate {
+    
+    func chatTextViewHeightConstraint(height: CGFloat) {
+        chatTextView.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = height
+            }
+        }
+    }
   func textViewDidChange(_ textView: UITextView) {
-    delegate?.textViewDidChangedDe()
+    if chatTextView.text.isEmpty {
+        sendButton.isEnabled = false
+    } else {
+        sendButton.isEnabled = true
+    }
+    
+    let size = CGSize(width: chatTextView.frame.width, height: .infinity)
+    let eszimatedSize = chatTextView.sizeThatFits(size)
+    
+    var height = min(maxHeightTextView, eszimatedSize.height)
+    height = max(height,minHeightTextView)
+    chatTextViewHeight.constant = height
     
   }
   func textViewDidEndEditing(_ textView: UITextView) {
     chatTextViewHeight.constant = minHeightTextView
+    
   }
   
   func textViewDidBeginEditing(_ textView: UITextView) {
-    delegate?.textViewDidBeginEdittingDe()
+    if chatTextView.text.isEmpty {
+        sendButton.isEnabled = false
+    } else {
+        sendButton.isEnabled = true
+    }
+    let size = CGSize(width: chatTextView.frame.width, height: .infinity)
+    let eszimatedSize = chatTextView.sizeThatFits(size)
+    
+    var height = min(maxHeightTextView, eszimatedSize.height)
+    height = max(height,minHeightTextView)
+    chatTextViewHeightConstraint(height: height)
     
     
   }

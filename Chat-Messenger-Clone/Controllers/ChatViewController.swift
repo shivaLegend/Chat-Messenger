@@ -21,7 +21,7 @@ class ChatViewController: UIViewController {
     case camera
   }
   var messages: [String] = []
-  let maxHeightTextView: CGFloat = 70
+  
   var minHeightTextView: CGFloat!
   var imagePicker: UIImagePickerController!
   
@@ -59,16 +59,36 @@ class ChatViewController: UIViewController {
     chatTableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil) , forCellReuseIdentifier: "ChatTableViewCell")
     chatTableView.transform = CGAffineTransform(rotationAngle: (-.pi))
     
+    //add target table view cell
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector (tableViewTapped))
     
     chatTableView.addGestureRecognizer(tapGesture)
     
-    //add target table view cell
+    //add long gesture for button voice
+    let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(buttonVoiceLongTap(_:)))
+    
+    bottomView.voiceButton.addGestureRecognizer(longGesture)
     
     configureTableView()
     
     
   }
+    
+    @objc func buttonVoiceLongTap(_ sender : UIGestureRecognizer){
+        
+        if sender.state == .ended {
+            print("UIGestureRecognizerStateEnded")
+            
+        }
+        else if sender.state == .began {
+            print("UIGestureRecognizerStateBegan.")
+            
+            
+        } else if sender.state == .changed {
+            print("gesture long changed")
+            print(sender.location(in: view.superview))
+        }
+    }
   
   
   @objc func tableViewTapped() {
@@ -143,43 +163,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension ChatViewController: BottomChatViewDelegate {
-  func textViewDidBeginEdittingDe() {
-    if bottomView.chatTextView.text.isEmpty {
-      bottomView.sendButton.isEnabled = false
-    } else {
-      bottomView.sendButton.isEnabled = true
-    }
-    let size = CGSize(width: bottomView.chatTextView.frame.width, height: .infinity)
-    let eszimatedSize = bottomView.chatTextView.sizeThatFits(size)
-    
-    var height = min(maxHeightTextView, eszimatedSize.height)
-    height = max(height,minHeightTextView)
-    chatTextViewHeightConstraint(height: height)
-  }
-  
-  func textViewDidChangedDe() {
-    if bottomView.chatTextView.text.isEmpty {
-      bottomView.sendButton.isEnabled = false
-    } else {
-      bottomView.sendButton.isEnabled = true
-    }
-    
-    let size = CGSize(width: bottomView.chatTextView.frame.width, height: .infinity)
-    let eszimatedSize = bottomView.chatTextView.sizeThatFits(size)
-    
-    var height = min(maxHeightTextView, eszimatedSize.height)
-    height = max(height,minHeightTextView)
-    bottomView.chatTextViewHeight.constant = height
-//        chatTextViewHeightConstraint(height: height)
-  }
-  
-  func chatTextViewHeightConstraint(height: CGFloat) {
-    bottomView.chatTextView.constraints.forEach { (constraint) in
-      if constraint.firstAttribute == .height {
-        constraint.constant = height
-      }
-    }
-  }
+
   
   func openCamera() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -194,7 +178,7 @@ extension ChatViewController: BottomChatViewDelegate {
       messages.insert(message, at: 0)
     }
     bottomView.chatTextView.text = ""
-    chatTextViewHeightConstraint(height: minHeightTextView)
+    bottomView.chatTextViewHeightConstraint(height: minHeightTextView)
     chatTableView.reloadData()
   }
   
