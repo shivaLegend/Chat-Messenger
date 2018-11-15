@@ -13,8 +13,8 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var takePhotoButton: UIButton!
-    
-    
+  @IBOutlet weak var switchButton: UIButton!
+  
     var captureSession = AVCaptureSession()
     //    var sessionOutputSetting = AVCapturePhotoSettings(format: [AVVideoCodecKey:AVVideoCodecType.jpeg])
     var previewLayer = AVCaptureVideoPreviewLayer()
@@ -25,12 +25,9 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         requestAccess()
-        
     }
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,16 +58,13 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     func setupCaptureSession() {
         
         let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .unspecified)
-        
+      
         guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!), captureSession.canAddInput(videoDeviceInput)
             else {return}
         
         captureSession.addInput(videoDeviceInput)
-        
-        
-//        guard captureSession.canAddOutput(photoOutput) else {return}
+      
         captureSession.sessionPreset = .photo
-//        captureSession.addOutput(photoOutput)
         
         previewLayer.session = self.captureSession
         
@@ -79,7 +73,8 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         view.layer.addSublayer(previewLayer)
         view.bringSubviewToFront(closeButton)
         view.bringSubviewToFront(takePhotoButton)
-        
+        view.bringSubviewToFront(switchButton)
+      
         captureSession.startRunning()
         
         let dataOutput = AVCaptureVideoDataOutput()
@@ -94,8 +89,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         
         let queue = DispatchQueue(label: "tai")
         dataOutput.setSampleBufferDelegate(self, queue: queue)
-        
-        
+      
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -131,9 +125,69 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     }
     @IBAction func cameraClickButton(_ sender: Any) {
        takePhoto = true
-        
-        
+      
     }
+  @IBAction func switchCameraClickButton(_ sender: Any) {
+    
+     let session = captureSession
+      //Indicate that some changes will be made to the session
+      session.beginConfiguration()
+      
+      //Remove existing input
+      guard let currentCameraInput: AVCaptureInput = session.inputs.first else {
+        return
+      }
+      
+      session.removeInput(currentCameraInput)
+      
+      //Get new input
+      var newCamera: AVCaptureDevice! = nil
+      if let input = currentCameraInput as? AVCaptureDeviceInput {
+        if (input.device.position == .back) {
+          newCamera = cameraWithPosition(position: .front)
+        } else {
+          newCamera = cameraWithPosition(position: .back)
+        }
+      }
+      
+      //Add input to session
+      var err: NSError?
+      var newVideoInput: AVCaptureDeviceInput!
+      do {
+        newVideoInput = try AVCaptureDeviceInput(device: newCamera)
+      } catch let err1 as NSError {
+        err = err1
+        newVideoInput = nil
+      }
+      
+      if newVideoInput == nil || err != nil {
+        print("Error creating capture device input: \(String(describing: err?.localizedDescription))")
+      } else {
+        session.addInput(newVideoInput)
+      }
+      
+      //Commit all the configuration changes at once
+      session.commitConfiguration()
+    
+    let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
+    
+    guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!), captureSession.canAddInput(videoDeviceInput)
+      else {return}
+      self.captureSession.addInput(videoDeviceInput)
+    captureSession.startRunning()
+  }
+  // Find a camera with the specified AVCaptureDevicePosition, returning nil if one is not found
+  func cameraWithPosition(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+    let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
+    for device in discoverySession.devices {
+      if device.position == position {
+        return device
+      }
+    }
+    
+    return nil
+  }
+  
     
 }
 

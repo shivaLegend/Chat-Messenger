@@ -163,7 +163,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_DEPRECATED_OBJC(Msg) SWIFT_DEPRECATED_MSG(Msg)
 #endif
 #if __has_feature(modules)
+@import AVFoundation;
 @import CoreGraphics;
+@import CoreMedia;
 @import Foundation;
 @import UIKit;
 #endif
@@ -207,10 +209,14 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone14BottomChatView")
 @interface BottomChatView : UIView
 @property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified chatTextView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified chatTextViewLeading;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified voiceButton;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified sendButton;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified chatTextViewHeight;
 - (void)awakeFromNib;
 - (IBAction)cameraClickButton:(id _Nonnull)sender;
 - (IBAction)sendPressButton:(UIButton * _Nonnull)sender;
+- (IBAction)galleryClickButton:(id _Nonnull)sender;
+- (IBAction)voiceClickButton:(id _Nonnull)sender;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -220,6 +226,27 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone14BottomChatView")
 - (void)textViewDidChange:(UITextView * _Nonnull)textView;
 - (void)textViewDidEndEditing:(UITextView * _Nonnull)textView;
 - (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
+@end
+
+@class AVCaptureOutput;
+@class AVCaptureConnection;
+@class NSBundle;
+
+SWIFT_CLASS("_TtC20Chat_Messenger_Clone21CaptureViewController")
+@interface CaptureViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified closeButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified takePhotoButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified switchButton;
+@property (nonatomic, readonly) BOOL prefersStatusBarHidden;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
+- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
+- (IBAction)closeClickButton:(id _Nonnull)sender;
+- (IBAction)cameraClickButton:(id _Nonnull)sender;
+- (IBAction)switchCameraClickButton:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UILabel;
@@ -235,7 +262,7 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone17ChatTableViewCell")
 @end
 
 @class UITableView;
-@class NSBundle;
+@class UIGestureRecognizer;
 
 SWIFT_CLASS("_TtC20Chat_Messenger_Clone18ChatViewController")
 @interface ChatViewController : UIViewController
@@ -243,7 +270,9 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone18ChatViewController")
 @property (nonatomic, weak) IBOutlet BottomChatView * _Null_unspecified bottomView;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified chatTableView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified bottomViewBottom;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified galleryView;
 - (void)viewDidLoad;
+- (void)buttonVoiceLongTap:(UIGestureRecognizer * _Nonnull)sender;
 - (void)tableViewTapped;
 - (void)keyboardWillShow:(NSNotification * _Nonnull)notification;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -252,18 +281,24 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone18ChatViewController")
 
 
 
-@class UIImagePickerController;
-
-@interface ChatViewController (SWIFT_EXTENSION(Chat_Messenger_Clone)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-- (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> * _Nonnull)info;
-@end
-
 
 @interface ChatViewController (SWIFT_EXTENSION(Chat_Messenger_Clone)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+@class UIImageView;
+
+SWIFT_CLASS("_TtC20Chat_Messenger_Clone19PhotoViewController")
+@interface PhotoViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageView;
+@property (nonatomic, readonly) BOOL prefersStatusBarHidden;
+- (void)viewDidLoad;
+- (IBAction)backClickButton:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

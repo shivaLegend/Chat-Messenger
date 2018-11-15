@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF2593B6219D54FE007B9142 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2593B5219D54FE007B9142 /* PreviewView.swift */; };
 		CF2593B8219D741C007B9142 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2593B7219D741C007B9142 /* PhotoViewController.swift */; };
 		CF6ED80F2198679900625628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6ED80E2198679900625628 /* AppDelegate.swift */; };
 		CF6ED8112198679900625628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6ED8102198679900625628 /* ViewController.swift */; };
@@ -23,7 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CF2593B5219D54FE007B9142 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		CF2593B7219D741C007B9142 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		CF6ED80B2198679900625628 /* Chat-Messenger-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat-Messenger-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6ED80E2198679900625628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,14 +49,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CF2593B4219D54E9007B9142 /* Capture Vc */ = {
-			isa = PBXGroup;
-			children = (
-				CF2593B5219D54FE007B9142 /* PreviewView.swift */,
-			);
-			path = "Capture Vc";
-			sourceTree = "<group>";
-		};
 		CF6ED8022198679800625628 = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +87,6 @@
 		CF6ED8212198689900625628 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF2593B4219D54E9007B9142 /* Capture Vc */,
 				CF6ED82521986C4500625628 /* Chat VC */,
 				CF6ED8122198679900625628 /* Main.storyboard */,
 				CF6ED8172198679900625628 /* LaunchScreen.storyboard */,
@@ -203,7 +192,6 @@
 			files = (
 				CF6ED8112198679900625628 /* ViewController.swift in Sources */,
 				CFB7B7F9219C504C00B4BC59 /* CaptureViewController.swift in Sources */,
-				CF2593B6219D54FE007B9142 /* PreviewView.swift in Sources */,
 				CF6ED824219868E400625628 /* ChatViewController.swift in Sources */,
 				CF6ED82C2198823700625628 /* ChatTableViewCell.swift in Sources */,
 				CF2593B8219D741C007B9142 /* PhotoViewController.swift in Sources */,

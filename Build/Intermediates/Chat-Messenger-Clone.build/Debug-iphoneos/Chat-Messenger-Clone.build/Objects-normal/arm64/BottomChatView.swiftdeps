@@ -5,24 +5,26 @@ provides-top-level:
 provides-nominal:
 - "20Chat_Messenger_Clone06BottomA12ViewDelegateP"
 - "20Chat_Messenger_Clone06BottomA4ViewC"
-- "20Chat_Messenger_Clone06BottomA4ViewC11ImageSourceO"
 provides-member:
 - ["20Chat_Messenger_Clone06BottomA12ViewDelegateP", ""]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", ""]
-- ["20Chat_Messenger_Clone06BottomA4ViewC11ImageSourceO", ""]
 provides-dynamic-lookup:
 - "awakeFromNib"
 - "cameraClickButton"
 - "chatTextView"
+- "chatTextViewHeight"
 - "chatTextViewLeading"
+- "galleryClickButton"
 - "sendButton"
 - "sendPressButton"
 - "textViewDidBeginEditing"
 - "textViewDidChange"
 - "textViewDidEndEditing"
+- "voiceButton"
+- "voiceClickButton"
 depends-top-level:
 - !private "/"
-- "=="
+- !private "=="
 - "AssignmentPrecedence"
 - !private "BooleanLiteralType"
 - "BottomChatView"
@@ -34,12 +36,9 @@ depends-top-level:
 - "FloatLiteralType"
 - "IntegerLiteralType"
 - "NSLayoutConstraint"
-- "String"
 - !private "StringLiteralType"
 - "UIButton"
 - !private "UIColor"
-- "UIImagePickerController"
-- "UIImageView"
 - "UITextView"
 - "UITextViewDelegate"
 - "UIView"
@@ -62,18 +61,15 @@ depends-member:
 - !private ["SK", "isEmpty"]
 - !private ["SK", "subscript"]
 - !private ["SB", "infinity"]
+- !private ["Sz", "infinity"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "BottomChatViewDelegate"]
 - !private ["20Chat_Messenger_Clone06BottomA4ViewC", "Bundle"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "CGFloat"]
 - !private ["20Chat_Messenger_Clone06BottomA4ViewC", "CGSize"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC", "ImageSource"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "NSLayoutConstraint"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC", "String"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "UIButton"]
 - !private ["20Chat_Messenger_Clone06BottomA4ViewC", "UIColor"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC", "UIImagePickerController"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC", "UIImageView"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "UITextView"]
 - !private ["20Chat_Messenger_Clone06BottomA4ViewC", "UIView"]
 - !private ["20Chat_Messenger_Clone06BottomA4ViewC", "addConstraint"]
@@ -81,16 +77,15 @@ depends-member:
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "awakeFromNib"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "cameraClickButton"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "chatTextView"]
+- ["20Chat_Messenger_Clone06BottomA4ViewC", "chatTextViewHeight"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "chatTextViewHeightConstraint"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "chatTextViewLeading"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "deinit"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "delegate"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC", "imagePicker"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC", "imageTake"]
+- ["20Chat_Messenger_Clone06BottomA4ViewC", "galleryClickButton"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "init"]
 - !private ["20Chat_Messenger_Clone06BottomA4ViewC", "max"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "maxHeightTextView"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC", "message"]
 - !private ["20Chat_Messenger_Clone06BottomA4ViewC", "min"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "minHeightTextView"]
 - !private ["20Chat_Messenger_Clone06BottomA4ViewC", "print"]
@@ -118,7 +113,10 @@ depends-member:
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "textViewShouldEndEditing"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "viewForZooming"]
 - ["20Chat_Messenger_Clone06BottomA4ViewC", "viewForZoomingInScrollView"]
+- ["20Chat_Messenger_Clone06BottomA4ViewC", "voiceButton"]
+- ["20Chat_Messenger_Clone06BottomA4ViewC", "voiceClickButton"]
 - ["20Chat_Messenger_Clone06BottomA12ViewDelegateP", "openCamera"]
+- ["20Chat_Messenger_Clone06BottomA12ViewDelegateP", "openGallery"]
 - ["20Chat_Messenger_Clone06BottomA12ViewDelegateP", "sendMessage"]
 - !private ["So8NSBundleC", "loadNibNamed"]
 - !private ["So8NSBundleC", "main"]
@@ -132,6 +130,7 @@ depends-member:
 - !private ["So15CALayerDelegateP", "addSubview"]
 - !private ["So15CALayerDelegateP", "awakeFromNib"]
 - !private ["So15CALayerDelegateP", "chatTextView"]
+- !private ["So15CALayerDelegateP", "chatTextViewHeight"]
 - !private ["So15CALayerDelegateP", "chatTextViewHeightConstraint"]
 - !private ["So15CALayerDelegateP", "constraints"]
 - !private ["So15CALayerDelegateP", "delegate"]
@@ -189,6 +188,7 @@ depends-member:
 - !private ["s7CVarArgP", "borderColor"]
 - !private ["s7CVarArgP", "cgColor"]
 - !private ["s7CVarArgP", "chatTextView"]
+- !private ["s7CVarArgP", "chatTextViewHeight"]
 - !private ["s7CVarArgP", "chatTextViewHeightConstraint"]
 - !private ["s7CVarArgP", "constant"]
 - !private ["s7CVarArgP", "constraints"]
@@ -256,6 +256,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "borderColor"]
 - !private ["s28CustomDebugStringConvertibleP", "cgColor"]
 - !private ["s28CustomDebugStringConvertibleP", "chatTextView"]
+- !private ["s28CustomDebugStringConvertibleP", "chatTextViewHeight"]
 - !private ["s28CustomDebugStringConvertibleP", "chatTextViewHeightConstraint"]
 - !private ["s28CustomDebugStringConvertibleP", "constant"]
 - !private ["s28CustomDebugStringConvertibleP", "constraints"]
@@ -264,6 +265,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "forEach"]
 - !private ["s28CustomDebugStringConvertibleP", "frame"]
 - !private ["s28CustomDebugStringConvertibleP", "height"]
+- !private ["s28CustomDebugStringConvertibleP", "infinity"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "isEmpty"]
@@ -306,11 +308,13 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "width"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "height"]
+- !private ["s29CustomPlaygroundQuickLookableP", "infinity"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "isEmpty"]
 - !private ["s29CustomPlaygroundQuickLookableP", "width"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "constant"]
 - !private ["s17CustomReflectableP", "constraints"]
 - !private ["s17CustomReflectableP", "delegate"]
 - !private ["s17CustomReflectableP", "forEach"]
@@ -322,7 +326,9 @@ depends-member:
 - !private ["s17CustomReflectableP", "isEmpty"]
 - !private ["s17CustomReflectableP", "isEnabled"]
 - !private ["s17CustomReflectableP", "layer"]
+- !private ["s17CustomReflectableP", "sizeThatFits"]
 - !private ["s17CustomReflectableP", "subscript"]
+- !private ["s17CustomReflectableP", "text"]
 - !private ["s17CustomReflectableP", "width"]
 - !private ["s23CustomStringConvertibleP", "Bundle"]
 - !private ["s23CustomStringConvertibleP", "CGSize"]
@@ -336,6 +342,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "borderColor"]
 - !private ["s23CustomStringConvertibleP", "cgColor"]
 - !private ["s23CustomStringConvertibleP", "chatTextView"]
+- !private ["s23CustomStringConvertibleP", "chatTextViewHeight"]
 - !private ["s23CustomStringConvertibleP", "chatTextViewHeightConstraint"]
 - !private ["s23CustomStringConvertibleP", "constant"]
 - !private ["s23CustomStringConvertibleP", "constraints"]
@@ -384,6 +391,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "viewForZooming"]
 - ["s23CustomStringConvertibleP", "viewForZoomingInScrollView"]
 - !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "constant"]
 - !private ["Se", "constraints"]
 - !private ["Se", "delegate"]
 - !private ["Se", "forEach"]
@@ -395,9 +403,13 @@ depends-member:
 - !private ["Se", "isEmpty"]
 - !private ["Se", "isEnabled"]
 - !private ["Se", "layer"]
+- !private ["Se", "sizeThatFits"]
 - !private ["Se", "subscript"]
+- !private ["Se", "text"]
 - !private ["Se", "width"]
+- !private ["Sd", "infinity"]
 - !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "constant"]
 - !private ["SE", "constraints"]
 - !private ["SE", "delegate"]
 - !private ["SE", "forEach"]
@@ -409,7 +421,9 @@ depends-member:
 - !private ["SE", "isEmpty"]
 - !private ["SE", "isEnabled"]
 - !private ["SE", "layer"]
+- !private ["SE", "sizeThatFits"]
 - !private ["SE", "subscript"]
+- !private ["SE", "text"]
 - !private ["SE", "width"]
 - !private ["SQ", "Bundle"]
 - !private ["SQ", "CGSize"]
@@ -424,6 +438,7 @@ depends-member:
 - !private ["SQ", "bottom"]
 - !private ["SQ", "cgColor"]
 - !private ["SQ", "chatTextView"]
+- !private ["SQ", "chatTextViewHeight"]
 - !private ["SQ", "chatTextViewHeightConstraint"]
 - !private ["SQ", "constant"]
 - !private ["SQ", "constraints"]
@@ -432,8 +447,6 @@ depends-member:
 - !private ["SQ", "firstAttribute"]
 - !private ["SQ", "forEach"]
 - !private ["SQ", "frame"]
-- ["SQ", "hash"]
-- ["SQ", "hashValue"]
 - !private ["SQ", "height"]
 - !private ["SQ", "infinity"]
 - !private ["SQ", "init"]
@@ -487,18 +500,22 @@ depends-member:
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "isEmpty"]
 - !private ["s25ExpressibleByFloatLiteralP", "infinity"]
 - !private ["s27ExpressibleByIntegerLiteralP", "infinity"]
+- !private ["s23ExpressibleByNilLiteralP", "constant"]
 - !private ["s23ExpressibleByNilLiteralP", "constraints"]
 - !private ["s23ExpressibleByNilLiteralP", "delegate"]
 - !private ["s23ExpressibleByNilLiteralP", "frame"]
 - !private ["s23ExpressibleByNilLiteralP", "isEmpty"]
 - !private ["s23ExpressibleByNilLiteralP", "isEnabled"]
 - !private ["s23ExpressibleByNilLiteralP", "layer"]
+- !private ["s23ExpressibleByNilLiteralP", "sizeThatFits"]
+- !private ["s23ExpressibleByNilLiteralP", "text"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "isEmpty"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "isEmpty"]
+- !private ["s17FixedWidthIntegerP", "infinity"]
 - !private ["SF", "infinity"]
 - !private ["SH", "Bundle"]
 - !private ["SH", "CGSize"]
@@ -513,6 +530,7 @@ depends-member:
 - !private ["SH", "bottom"]
 - !private ["SH", "cgColor"]
 - !private ["SH", "chatTextView"]
+- !private ["SH", "chatTextViewHeight"]
 - !private ["SH", "chatTextViewHeightConstraint"]
 - !private ["SH", "constant"]
 - !private ["SH", "constraints"]
@@ -521,8 +539,6 @@ depends-member:
 - !private ["SH", "firstAttribute"]
 - !private ["SH", "forEach"]
 - !private ["SH", "frame"]
-- ["SH", "hash"]
-- ["SH", "hashValue"]
 - !private ["SH", "height"]
 - !private ["SH", "infinity"]
 - !private ["SH", "init"]
@@ -567,17 +583,13 @@ depends-member:
 - !private ["SH", "translatesAutoresizingMaskIntoConstraints"]
 - ["SH", "viewForZooming"]
 - ["SH", "viewForZoomingInScrollView"]
-- !private ["s6HasherV", "combine"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC11ImageSourceO", "__derived_enum_equals"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC11ImageSourceO", "camera"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC11ImageSourceO", "deinit"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC11ImageSourceO", "hash"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC11ImageSourceO", "hashValue"]
-- ["20Chat_Messenger_Clone06BottomA4ViewC11ImageSourceO", "photoLibrary"]
+- !private ["Si", "infinity"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "infinity"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s25LosslessStringConvertibleP", "isEmpty"]
+- !private ["s10MirrorPathP", "infinity"]
 - !private ["s10MirrorPathP", "init"]
 - !private ["s10MirrorPathP", "init"]
 - !private ["s10MirrorPathP", "isEmpty"]
@@ -594,6 +606,7 @@ depends-member:
 - !private ["So8NSCodingP", "borderColor"]
 - !private ["So8NSCodingP", "cgColor"]
 - !private ["So8NSCodingP", "chatTextView"]
+- !private ["So8NSCodingP", "chatTextViewHeight"]
 - !private ["So8NSCodingP", "chatTextViewHeightConstraint"]
 - !private ["So8NSCodingP", "constraints"]
 - !private ["So8NSCodingP", "delegate"]
@@ -655,11 +668,8 @@ depends-member:
 - ["So8NSObjectC", "CGFloat"]
 - !private ["So8NSObjectC", "CGSize"]
 - ["So8NSObjectC", "NSLayoutConstraint"]
-- ["So8NSObjectC", "String"]
 - ["So8NSObjectC", "UIButton"]
 - !private ["So8NSObjectC", "UIColor"]
-- ["So8NSObjectC", "UIImagePickerController"]
-- ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UITextView"]
 - !private ["So8NSObjectC", "UIView"]
 - !private ["So8NSObjectC", "addConstraint"]
@@ -669,6 +679,7 @@ depends-member:
 - ["So8NSObjectC", "cameraClickButton"]
 - !private ["So8NSObjectC", "cgColor"]
 - ["So8NSObjectC", "chatTextView"]
+- ["So8NSObjectC", "chatTextViewHeight"]
 - ["So8NSObjectC", "chatTextViewHeightConstraint"]
 - ["So8NSObjectC", "chatTextViewLeading"]
 - !private ["So8NSObjectC", "constant"]
@@ -676,8 +687,7 @@ depends-member:
 - ["So8NSObjectC", "delegate"]
 - !private ["So8NSObjectC", "firstAttribute"]
 - !private ["So8NSObjectC", "frame"]
-- ["So8NSObjectC", "imagePicker"]
-- ["So8NSObjectC", "imageTake"]
+- ["So8NSObjectC", "galleryClickButton"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "isEmpty"]
@@ -687,7 +697,6 @@ depends-member:
 - !private ["So8NSObjectC", "main"]
 - !private ["So8NSObjectC", "max"]
 - ["So8NSObjectC", "maxHeightTextView"]
-- ["So8NSObjectC", "message"]
 - !private ["So8NSObjectC", "min"]
 - ["So8NSObjectC", "minHeightTextView"]
 - !private ["So8NSObjectC", "print"]
@@ -718,6 +727,8 @@ depends-member:
 - !private ["So8NSObjectC", "translatesAutoresizingMaskIntoConstraints"]
 - ["So8NSObjectC", "viewForZooming"]
 - ["So8NSObjectC", "viewForZoomingInScrollView"]
+- ["So8NSObjectC", "voiceButton"]
+- ["So8NSObjectC", "voiceClickButton"]
 - !private ["So8NSObjectP", "Bundle"]
 - !private ["So8NSObjectP", "CGSize"]
 - !private ["So8NSObjectP", "NSLayoutConstraint"]
@@ -729,6 +740,7 @@ depends-member:
 - !private ["So8NSObjectP", "borderColor"]
 - !private ["So8NSObjectP", "cgColor"]
 - !private ["So8NSObjectP", "chatTextView"]
+- !private ["So8NSObjectP", "chatTextViewHeight"]
 - !private ["So8NSObjectP", "chatTextViewHeightConstraint"]
 - !private ["So8NSObjectP", "constant"]
 - !private ["So8NSObjectP", "constraints"]
@@ -780,12 +792,15 @@ depends-member:
 - !private ["So14NSSecureCodingP", "isEmpty"]
 - !private ["So8NSStringC", "isEmpty"]
 - !private ["Sj", "infinity"]
+- !private ["Sq", "constant"]
 - !private ["Sq", "constraints"]
 - !private ["Sq", "delegate"]
 - !private ["Sq", "frame"]
 - !private ["Sq", "isEmpty"]
 - !private ["Sq", "isEnabled"]
 - !private ["Sq", "layer"]
+- !private ["Sq", "sizeThatFits"]
+- !private ["Sq", "text"]
 - !private ["Sk", "forEach"]
 - !private ["Sk", "subscript"]
 - !private ["Sm", "forEach"]
@@ -805,6 +820,7 @@ depends-member:
 - !private ["ST", "init"]
 - !private ["ST", "isEmpty"]
 - !private ["ST", "subscript"]
+- !private ["SZ", "infinity"]
 - !private ["s13SignedNumericP", "infinity"]
 - !private ["Sx", "infinity"]
 - !private ["SS", "init"]
@@ -829,6 +845,7 @@ depends-member:
 - !private ["So29UIAccessibilityIdentificationP", "addSubview"]
 - !private ["So29UIAccessibilityIdentificationP", "awakeFromNib"]
 - !private ["So29UIAccessibilityIdentificationP", "chatTextView"]
+- !private ["So29UIAccessibilityIdentificationP", "chatTextViewHeight"]
 - !private ["So29UIAccessibilityIdentificationP", "chatTextViewHeightConstraint"]
 - !private ["So29UIAccessibilityIdentificationP", "constraints"]
 - !private ["So29UIAccessibilityIdentificationP", "delegate"]
@@ -877,6 +894,7 @@ depends-member:
 - !private ["So12UIAppearanceP", "addSubview"]
 - !private ["So12UIAppearanceP", "awakeFromNib"]
 - !private ["So12UIAppearanceP", "chatTextView"]
+- !private ["So12UIAppearanceP", "chatTextViewHeight"]
 - !private ["So12UIAppearanceP", "chatTextViewHeightConstraint"]
 - !private ["So12UIAppearanceP", "constraints"]
 - !private ["So12UIAppearanceP", "delegate"]
@@ -925,6 +943,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "addSubview"]
 - !private ["So21UIAppearanceContainerP", "awakeFromNib"]
 - !private ["So21UIAppearanceContainerP", "chatTextView"]
+- !private ["So21UIAppearanceContainerP", "chatTextViewHeight"]
 - !private ["So21UIAppearanceContainerP", "chatTextViewHeightConstraint"]
 - !private ["So21UIAppearanceContainerP", "constraints"]
 - !private ["So21UIAppearanceContainerP", "delegate"]
@@ -984,6 +1003,7 @@ depends-member:
 - !private ["So17UICoordinateSpaceP", "addSubview"]
 - !private ["So17UICoordinateSpaceP", "awakeFromNib"]
 - !private ["So17UICoordinateSpaceP", "chatTextView"]
+- !private ["So17UICoordinateSpaceP", "chatTextViewHeight"]
 - !private ["So17UICoordinateSpaceP", "chatTextViewHeightConstraint"]
 - !private ["So17UICoordinateSpaceP", "constraints"]
 - !private ["So17UICoordinateSpaceP", "delegate"]
@@ -1032,6 +1052,7 @@ depends-member:
 - !private ["So13UIDynamicItemP", "addSubview"]
 - !private ["So13UIDynamicItemP", "awakeFromNib"]
 - !private ["So13UIDynamicItemP", "chatTextView"]
+- !private ["So13UIDynamicItemP", "chatTextViewHeight"]
 - !private ["So13UIDynamicItemP", "chatTextViewHeightConstraint"]
 - !private ["So13UIDynamicItemP", "constraints"]
 - !private ["So13UIDynamicItemP", "delegate"]
@@ -1080,6 +1101,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "addSubview"]
 - !private ["So18UIFocusEnvironmentP", "awakeFromNib"]
 - !private ["So18UIFocusEnvironmentP", "chatTextView"]
+- !private ["So18UIFocusEnvironmentP", "chatTextViewHeight"]
 - !private ["So18UIFocusEnvironmentP", "chatTextViewHeightConstraint"]
 - !private ["So18UIFocusEnvironmentP", "constraints"]
 - !private ["So18UIFocusEnvironmentP", "delegate"]
@@ -1128,6 +1150,7 @@ depends-member:
 - !private ["So11UIFocusItemP", "addSubview"]
 - !private ["So11UIFocusItemP", "awakeFromNib"]
 - !private ["So11UIFocusItemP", "chatTextView"]
+- !private ["So11UIFocusItemP", "chatTextViewHeight"]
 - !private ["So11UIFocusItemP", "chatTextViewHeightConstraint"]
 - !private ["So11UIFocusItemP", "constraints"]
 - !private ["So11UIFocusItemP", "delegate"]
@@ -1176,6 +1199,7 @@ depends-member:
 - !private ["So20UIFocusItemContainerP", "addSubview"]
 - !private ["So20UIFocusItemContainerP", "awakeFromNib"]
 - !private ["So20UIFocusItemContainerP", "chatTextView"]
+- !private ["So20UIFocusItemContainerP", "chatTextViewHeight"]
 - !private ["So20UIFocusItemContainerP", "chatTextViewHeightConstraint"]
 - !private ["So20UIFocusItemContainerP", "constraints"]
 - !private ["So20UIFocusItemContainerP", "delegate"]
@@ -1236,6 +1260,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "addSubview"]
 - !private ["So30UIPasteConfigurationSupportingP", "awakeFromNib"]
 - !private ["So30UIPasteConfigurationSupportingP", "chatTextView"]
+- !private ["So30UIPasteConfigurationSupportingP", "chatTextViewHeight"]
 - !private ["So30UIPasteConfigurationSupportingP", "chatTextViewHeightConstraint"]
 - !private ["So30UIPasteConfigurationSupportingP", "constraints"]
 - !private ["So30UIPasteConfigurationSupportingP", "delegate"]
@@ -1280,11 +1305,8 @@ depends-member:
 - ["So11UIResponderC", "CGFloat"]
 - !private ["So11UIResponderC", "CGSize"]
 - ["So11UIResponderC", "NSLayoutConstraint"]
-- ["So11UIResponderC", "String"]
 - ["So11UIResponderC", "UIButton"]
 - !private ["So11UIResponderC", "UIColor"]
-- ["So11UIResponderC", "UIImagePickerController"]
-- ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UITextView"]
 - !private ["So11UIResponderC", "UIView"]
 - !private ["So11UIResponderC", "addConstraint"]
@@ -1292,20 +1314,19 @@ depends-member:
 - ["So11UIResponderC", "awakeFromNib"]
 - ["So11UIResponderC", "cameraClickButton"]
 - ["So11UIResponderC", "chatTextView"]
+- ["So11UIResponderC", "chatTextViewHeight"]
 - ["So11UIResponderC", "chatTextViewHeightConstraint"]
 - ["So11UIResponderC", "chatTextViewLeading"]
 - !private ["So11UIResponderC", "constraints"]
 - ["So11UIResponderC", "delegate"]
 - !private ["So11UIResponderC", "frame"]
-- ["So11UIResponderC", "imagePicker"]
-- ["So11UIResponderC", "imageTake"]
+- ["So11UIResponderC", "galleryClickButton"]
 - ["So11UIResponderC", "init"]
 - !private ["So11UIResponderC", "init"]
 - !private ["So11UIResponderC", "isEnabled"]
 - !private ["So11UIResponderC", "layer"]
 - !private ["So11UIResponderC", "max"]
 - ["So11UIResponderC", "maxHeightTextView"]
-- ["So11UIResponderC", "message"]
 - !private ["So11UIResponderC", "min"]
 - ["So11UIResponderC", "minHeightTextView"]
 - !private ["So11UIResponderC", "print"]
@@ -1336,6 +1357,8 @@ depends-member:
 - !private ["So11UIResponderC", "translatesAutoresizingMaskIntoConstraints"]
 - ["So11UIResponderC", "viewForZooming"]
 - ["So11UIResponderC", "viewForZoomingInScrollView"]
+- ["So11UIResponderC", "voiceButton"]
+- ["So11UIResponderC", "voiceClickButton"]
 - !private ["So30UIResponderStandardEditActionsP", "Bundle"]
 - !private ["So30UIResponderStandardEditActionsP", "CGSize"]
 - !private ["So30UIResponderStandardEditActionsP", "NSLayoutConstraint"]
@@ -1345,6 +1368,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "addSubview"]
 - !private ["So30UIResponderStandardEditActionsP", "awakeFromNib"]
 - !private ["So30UIResponderStandardEditActionsP", "chatTextView"]
+- !private ["So30UIResponderStandardEditActionsP", "chatTextViewHeight"]
 - !private ["So30UIResponderStandardEditActionsP", "chatTextViewHeightConstraint"]
 - !private ["So30UIResponderStandardEditActionsP", "constraints"]
 - !private ["So30UIResponderStandardEditActionsP", "delegate"]
@@ -1398,6 +1422,7 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "addConstraint"]
 - !private ["So20UIScrollViewDelegateP", "addSubview"]
 - !private ["So20UIScrollViewDelegateP", "chatTextView"]
+- !private ["So20UIScrollViewDelegateP", "chatTextViewHeight"]
 - !private ["So20UIScrollViewDelegateP", "chatTextViewHeightConstraint"]
 - !private ["So20UIScrollViewDelegateP", "delegate"]
 - !private ["So20UIScrollViewDelegateP", "max"]
@@ -1473,6 +1498,7 @@ depends-member:
 - !private ["So18UITextViewDelegateP", "addConstraint"]
 - !private ["So18UITextViewDelegateP", "addSubview"]
 - !private ["So18UITextViewDelegateP", "chatTextView"]
+- !private ["So18UITextViewDelegateP", "chatTextViewHeight"]
 - !private ["So18UITextViewDelegateP", "chatTextViewHeightConstraint"]
 - !private ["So18UITextViewDelegateP", "delegate"]
 - !private ["So18UITextViewDelegateP", "max"]
@@ -1512,6 +1538,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "addSubview"]
 - !private ["So18UITraitEnvironmentP", "awakeFromNib"]
 - !private ["So18UITraitEnvironmentP", "chatTextView"]
+- !private ["So18UITraitEnvironmentP", "chatTextViewHeight"]
 - !private ["So18UITraitEnvironmentP", "chatTextViewHeightConstraint"]
 - !private ["So18UITraitEnvironmentP", "constraints"]
 - !private ["So18UITraitEnvironmentP", "delegate"]
@@ -1560,6 +1587,7 @@ depends-member:
 - !private ["So23UIUserActivityRestoringP", "addSubview"]
 - !private ["So23UIUserActivityRestoringP", "awakeFromNib"]
 - !private ["So23UIUserActivityRestoringP", "chatTextView"]
+- !private ["So23UIUserActivityRestoringP", "chatTextViewHeight"]
 - !private ["So23UIUserActivityRestoringP", "chatTextViewHeightConstraint"]
 - !private ["So23UIUserActivityRestoringP", "constraints"]
 - !private ["So23UIUserActivityRestoringP", "delegate"]
@@ -1604,11 +1632,8 @@ depends-member:
 - ["So6UIViewC", "CGFloat"]
 - !private ["So6UIViewC", "CGSize"]
 - ["So6UIViewC", "NSLayoutConstraint"]
-- ["So6UIViewC", "String"]
 - ["So6UIViewC", "UIButton"]
 - !private ["So6UIViewC", "UIColor"]
-- ["So6UIViewC", "UIImagePickerController"]
-- ["So6UIViewC", "UIImageView"]
 - ["So6UIViewC", "UITextView"]
 - !private ["So6UIViewC", "UIView"]
 - ["So6UIViewC", ""]
@@ -1617,20 +1642,19 @@ depends-member:
 - ["So6UIViewC", "awakeFromNib"]
 - ["So6UIViewC", "cameraClickButton"]
 - ["So6UIViewC", "chatTextView"]
+- ["So6UIViewC", "chatTextViewHeight"]
 - ["So6UIViewC", "chatTextViewHeightConstraint"]
 - ["So6UIViewC", "chatTextViewLeading"]
 - !private ["So6UIViewC", "constraints"]
 - ["So6UIViewC", "delegate"]
 - !private ["So6UIViewC", "frame"]
-- ["So6UIViewC", "imagePicker"]
-- ["So6UIViewC", "imageTake"]
+- ["So6UIViewC", "galleryClickButton"]
 - ["So6UIViewC", "init"]
 - !private ["So6UIViewC", "init"]
 - !private ["So6UIViewC", "isEnabled"]
 - !private ["So6UIViewC", "layer"]
 - !private ["So6UIViewC", "max"]
 - ["So6UIViewC", "maxHeightTextView"]
-- ["So6UIViewC", "message"]
 - !private ["So6UIViewC", "min"]
 - ["So6UIViewC", "minHeightTextView"]
 - !private ["So6UIViewC", "print"]
@@ -1661,6 +1685,9 @@ depends-member:
 - !private ["So6UIViewC", "translatesAutoresizingMaskIntoConstraints"]
 - ["So6UIViewC", "viewForZooming"]
 - ["So6UIViewC", "viewForZoomingInScrollView"]
+- ["So6UIViewC", "voiceButton"]
+- ["So6UIViewC", "voiceClickButton"]
+- !private ["s18_BitwiseOperationsP", "infinity"]
 - !private ["s15_CVarArgAlignedP", "infinity"]
 - !private ["s22_CVarArgPassedAsDoubleP", "infinity"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "Bundle"]
@@ -1672,6 +1699,7 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "addSubview"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "awakeFromNib"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "chatTextView"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "chatTextViewHeight"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "chatTextViewHeightConstraint"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "constraints"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "delegate"]
@@ -1717,6 +1745,8 @@ depends-member:
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "isEmpty"]
+- !private ["s33_ExpressibleByBuiltinFloatLiteralP", "infinity"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "infinity"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "isEmpty"]
@@ -1733,6 +1763,7 @@ depends-member:
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "isEmpty"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "forEach"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "infinity"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "isEmpty"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Bundle"]
@@ -1746,6 +1777,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "borderColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "cgColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "chatTextView"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "chatTextViewHeight"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "chatTextViewHeightConstraint"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "constant"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "constraints"]
@@ -1791,6 +1823,7 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "viewForZooming"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "viewForZoomingInScrollView"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "constant"]
 - !private ["s21_ObjectiveCBridgeableP", "constraints"]
 - !private ["s21_ObjectiveCBridgeableP", "delegate"]
 - !private ["s21_ObjectiveCBridgeableP", "forEach"]
@@ -1802,7 +1835,9 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "isEmpty"]
 - !private ["s21_ObjectiveCBridgeableP", "isEnabled"]
 - !private ["s21_ObjectiveCBridgeableP", "layer"]
+- !private ["s21_ObjectiveCBridgeableP", "sizeThatFits"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "text"]
 - !private ["s21_ObjectiveCBridgeableP", "width"]
 - !private ["s16_SwiftStringViewP", "init"]
 - !private ["s16_SwiftStringViewP", "init"]
@@ -1813,6 +1848,7 @@ depends-nominal:
 - !private "So17NSLayoutAttributeV"
 - !private "SK"
 - !private "SB"
+- !private "Sz"
 - !private "Sb"
 - "20Chat_Messenger_Clone06BottomA4ViewC"
 - "20Chat_Messenger_Clone06BottomA12ViewDelegateP"
@@ -1831,6 +1867,7 @@ depends-nominal:
 - !private "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
 - !private "Se"
+- !private "Sd"
 - !private "SE"
 - "SQ"
 - !private "s25ExpressibleByArrayLiteralP"
@@ -1841,10 +1878,10 @@ depends-nominal:
 - !private "s23ExpressibleByNilLiteralP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s17FixedWidthIntegerP"
 - !private "SF"
 - "SH"
-- !private "s6HasherV"
-- "20Chat_Messenger_Clone06BottomA4ViewC11ImageSourceO"
+- !private "Si"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
 - !private "SM"
@@ -1865,6 +1902,7 @@ depends-nominal:
 - !private "SY"
 - !private "So16NSLayoutRelationV"
 - !private "ST"
+- !private "SZ"
 - !private "s13SignedNumericP"
 - !private "Sx"
 - !private "SS"
@@ -1902,12 +1940,15 @@ depends-nominal:
 - "So18UITraitEnvironmentP"
 - "So23UIUserActivityRestoringP"
 - "So6UIViewC"
+- !private "s18_BitwiseOperationsP"
 - !private "s15_CVarArgAlignedP"
 - !private "s22_CVarArgPassedAsDoubleP"
 - "s37_DefaultCustomPlaygroundQuickLookableP"
 - !private "s24_DestructorSafeContainerP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s33_ExpressibleByBuiltinFloatLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
@@ -1921,26 +1962,34 @@ depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/simd.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "45ea93e70fb0fded9c0b7ae6a64b27ac"
+interface-hash: "e8ffc98f31d69fda11f3c967f49cdeb2"

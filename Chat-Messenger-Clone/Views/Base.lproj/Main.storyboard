@@ -77,15 +77,25 @@
                                     <constraint firstAttribute="height" constant="50" id="682-bF-8gS"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63p-Y1-eE8">
+                                <rect key="frame" x="0.0" y="736" width="414" height="226"/>
+                                <color key="backgroundColor" red="0.9468161464" green="0.31211523880000003" blue="0.91315930339999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="226" id="nfE-x8-NeB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Zdx-7i-ijW" secondAttribute="trailing" id="9B0-Yv-MXi"/>
                             <constraint firstItem="gIj-fj-HZD" firstAttribute="top" secondItem="Zdx-7i-ijW" secondAttribute="bottom" id="HiU-JQ-BW9"/>
                             <constraint firstItem="gIj-fj-HZD" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="Hlj-Bt-goN"/>
+                            <constraint firstAttribute="trailing" secondItem="63p-Y1-eE8" secondAttribute="trailing" id="IH3-Xf-7XL"/>
                             <constraint firstAttribute="trailing" secondItem="gIj-fj-HZD" secondAttribute="trailing" id="MaH-gl-U8l"/>
                             <constraint firstItem="qdZ-Yg-iDE" firstAttribute="top" secondItem="gIj-fj-HZD" secondAttribute="bottom" id="OyP-y7-wKk"/>
+                            <constraint firstItem="63p-Y1-eE8" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="bQ2-xn-Lfg"/>
                             <constraint firstItem="Zdx-7i-ijW" firstAttribute="top" secondItem="Xc3-Cx-ugA" secondAttribute="top" id="iR6-rX-T8C"/>
+                            <constraint firstItem="63p-Y1-eE8" firstAttribute="top" secondItem="gIj-fj-HZD" secondAttribute="bottom" id="j43-yo-mnz"/>
                             <constraint firstItem="Zdx-7i-ijW" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="o0j-vS-pzH"/>
                         </constraints>
                     </view>
@@ -93,6 +103,7 @@
                         <outlet property="bottomView" destination="gIj-fj-HZD" id="Pvx-Az-n0Q"/>
                         <outlet property="bottomViewBottom" destination="OyP-y7-wKk" id="Z6N-I9-48f"/>
                         <outlet property="chatTableView" destination="Zdx-7i-ijW" id="nDB-QN-TrG"/>
+                        <outlet property="galleryView" destination="63p-Y1-eE8" id="OZw-js-mg9"/>
                         <outlet property="tableViewTopHeight" destination="iR6-rX-T8C" id="L91-A1-Ngy"/>
                     </connections>
                 </viewController>
@@ -113,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIh-Jy-Fx4">
-                                <rect key="frame" x="18" y="18" width="37" height="37"/>
+                                <rect key="frame" x="18" y="18" width="25" height="25"/>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="closeClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="wtZ-7h-v4a"/>
@@ -130,17 +141,27 @@
                                     <action selector="cameraClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="RZq-Jo-eUb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJd-G0-UyT">
+                                <rect key="frame" x="355" y="656" width="25" height="25"/>
+                                <state key="normal" image="switch"/>
+                                <connections>
+                                    <action selector="switchCameraClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="6fw-Ij-b23"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MJd-G0-UyT" firstAttribute="bottom" secondItem="fjk-mA-CNb" secondAttribute="bottom" id="32s-c4-9aw"/>
                             <constraint firstItem="uIh-Jy-Fx4" firstAttribute="leading" secondItem="WlA-C3-1Rz" secondAttribute="leading" constant="18" id="5Wz-rC-lmh"/>
                             <constraint firstItem="fjk-mA-CNb" firstAttribute="centerX" secondItem="WlA-C3-1Rz" secondAttribute="centerX" id="NCm-pK-roK"/>
+                            <constraint firstAttribute="trailing" secondItem="MJd-G0-UyT" secondAttribute="trailing" constant="34" id="cPf-2Y-SF8"/>
                             <constraint firstItem="19T-kQ-r9A" firstAttribute="top" secondItem="fjk-mA-CNb" secondAttribute="bottom" constant="55" id="cqb-3F-W6Y"/>
                             <constraint firstItem="uIh-Jy-Fx4" firstAttribute="top" secondItem="WlA-C3-1Rz" secondAttribute="top" constant="18" id="jbo-vj-9kx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="uIh-Jy-Fx4" id="vb1-5R-A9A"/>
+                        <outlet property="switchButton" destination="MJd-G0-UyT" id="yhd-cq-ETD"/>
                         <outlet property="takePhotoButton" destination="fjk-mA-CNb" id="ini-Yf-hmy"/>
                     </connections>
                 </viewController>
@@ -209,8 +230,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="37.5" height="37.5"/>
-        <image name="circle" width="64" height="64"/>
-        <image name="close" width="37.5" height="37.5"/>
+        <image name="back" width="25" height="25"/>
+        <image name="circle" width="40" height="40"/>
+        <image name="close" width="25" height="25"/>
+        <image name="switch" width="25" height="25"/>
     </resources>
 </document>

@@ -15,21 +15,20 @@ class ChatViewController: UIViewController {
   @IBOutlet weak var bottomView: BottomChatView!
   @IBOutlet weak var chatTableView: UITableView!
   @IBOutlet weak var bottomViewBottom: NSLayoutConstraint!
+  @IBOutlet weak var galleryView: UIView!
   
-  enum ImageSource {
-    case photoLibrary
-    case camera
-  }
+  
   var messages: [String] = []
   
   var minHeightTextView: CGFloat!
-  var imagePicker: UIImagePickerController!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationController?.navigationBar.alpha = 0.7
     minHeightTextView = bottomView.chatTextView.frame.height
+    
+    
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(keyboardWillShow),
@@ -114,6 +113,7 @@ class ChatViewController: UIViewController {
     let keyboardRectangle = keyboardFrame.cgRectValue
     let keyboardHeight = keyboardRectangle.height
     
+    
     guard let keyboardDuration: NSNumber = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {
       print("keyboard duration is error")
       return
@@ -164,7 +164,19 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ChatViewController: BottomChatViewDelegate {
 
-  
+  func openGallery() {
+    if bottomViewBottom.constant == 0 {
+      view.bringSubviewToFront(galleryView)
+      bottomViewBottom.constant = 226
+    } else if bottomViewBottom.constant == 226 {
+      view.sendSubviewToBack(galleryView)
+      
+    }
+    UIView.animate(withDuration: 0.18) {
+      self.view.layoutIfNeeded()
+    }
+    
+  }
   func openCamera() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let controller = storyboard.instantiateViewController(withIdentifier: "CaptureViewController")
