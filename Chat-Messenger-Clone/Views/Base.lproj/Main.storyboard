@@ -124,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIh-Jy-Fx4">
-                                <rect key="frame" x="18" y="18" width="25" height="25"/>
+                                <rect key="frame" x="18" y="18" width="37" height="37"/>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="closeClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="wtZ-7h-v4a"/>
@@ -142,10 +142,33 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJd-G0-UyT">
-                                <rect key="frame" x="355" y="656" width="25" height="25"/>
+                                <rect key="frame" x="343" y="644" width="37" height="37"/>
                                 <state key="normal" image="switch"/>
                                 <connections>
                                     <action selector="switchCameraClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="6fw-Ij-b23"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFb-pq-UfV">
+                                <rect key="frame" x="175" y="336" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="A8M-fa-h3o"/>
+                                    <constraint firstAttribute="height" constant="64" id="fsA-pm-t4R"/>
+                                </constraints>
+                                <state key="normal" image="circle"/>
+                                <connections>
+                                    <action selector="takeVideoClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="85q-Ku-vTm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYe-8m-nHZ">
+                                <rect key="frame" x="299" y="451" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="VPn-2i-0vS"/>
+                                    <constraint firstAttribute="width" constant="64" id="c4C-dj-hb2"/>
+                                </constraints>
+                                <state key="normal" image="circle"/>
+                                <connections>
+                                    <action selector="stopVideo:" destination="aDT-BE-mCf" eventType="touchUpInside" id="Qiv-iP-Nd7"/>
+                                    <action selector="takeVideoClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="Voj-rv-GH9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -153,9 +176,15 @@
                         <constraints>
                             <constraint firstItem="MJd-G0-UyT" firstAttribute="bottom" secondItem="fjk-mA-CNb" secondAttribute="bottom" id="32s-c4-9aw"/>
                             <constraint firstItem="uIh-Jy-Fx4" firstAttribute="leading" secondItem="WlA-C3-1Rz" secondAttribute="leading" constant="18" id="5Wz-rC-lmh"/>
+                            <constraint firstAttribute="trailing" secondItem="HYe-8m-nHZ" secondAttribute="trailing" constant="51" id="MMs-bT-pcz"/>
                             <constraint firstItem="fjk-mA-CNb" firstAttribute="centerX" secondItem="WlA-C3-1Rz" secondAttribute="centerX" id="NCm-pK-roK"/>
+                            <constraint firstItem="MJd-G0-UyT" firstAttribute="top" secondItem="HYe-8m-nHZ" secondAttribute="bottom" constant="129" id="NNo-ah-Dlc"/>
+                            <constraint firstItem="sFb-pq-UfV" firstAttribute="centerY" secondItem="WlA-C3-1Rz" secondAttribute="centerY" id="QZg-c6-vR4"/>
+                            <constraint firstItem="HYe-8m-nHZ" firstAttribute="top" secondItem="KLN-8A-rav" secondAttribute="bottom" constant="431" id="Vbl-AA-hxV"/>
+                            <constraint firstItem="sFb-pq-UfV" firstAttribute="centerX" secondItem="WlA-C3-1Rz" secondAttribute="centerX" id="XB7-Mq-CbW"/>
                             <constraint firstAttribute="trailing" secondItem="MJd-G0-UyT" secondAttribute="trailing" constant="34" id="cPf-2Y-SF8"/>
                             <constraint firstItem="19T-kQ-r9A" firstAttribute="top" secondItem="fjk-mA-CNb" secondAttribute="bottom" constant="55" id="cqb-3F-W6Y"/>
+                            <constraint firstItem="HYe-8m-nHZ" firstAttribute="leading" secondItem="WlA-C3-1Rz" secondAttribute="leading" constant="299" id="gYx-qR-xgH"/>
                             <constraint firstItem="uIh-Jy-Fx4" firstAttribute="top" secondItem="WlA-C3-1Rz" secondAttribute="top" constant="18" id="jbo-vj-9kx"/>
                         </constraints>
                     </view>
@@ -163,6 +192,8 @@
                         <outlet property="closeButton" destination="uIh-Jy-Fx4" id="vb1-5R-A9A"/>
                         <outlet property="switchButton" destination="MJd-G0-UyT" id="yhd-cq-ETD"/>
                         <outlet property="takePhotoButton" destination="fjk-mA-CNb" id="ini-Yf-hmy"/>
+                        <outlet property="temp2Button" destination="HYe-8m-nHZ" id="RKz-oV-tuc"/>
+                        <outlet property="tempButtom" destination="sFb-pq-UfV" id="Quq-Sd-Dyy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4xQ-bJ-EcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -185,7 +216,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwJ-e1-2Tx">
-                                <rect key="frame" x="15" y="15" width="37" height="37"/>
+                                <rect key="frame" x="15" y="15" width="25" height="25"/>
                                 <state key="normal" image="back"/>
                                 <connections>
                                     <action selector="backClickButton:" destination="8WP-Rn-1ar" eventType="touchUpInside" id="wkK-Fj-DUx"/>
@@ -230,9 +261,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="25" height="25"/>
-        <image name="circle" width="40" height="40"/>
-        <image name="close" width="25" height="25"/>
-        <image name="switch" width="25" height="25"/>
+        <image name="back" width="37.5" height="37.5"/>
+        <image name="circle" width="64" height="64"/>
+        <image name="close" width="37.5" height="37.5"/>
+        <image name="switch" width="37.5" height="37.5"/>
     </resources>
 </document>

@@ -169,7 +169,7 @@ extension ChatViewController: BottomChatViewDelegate {
       view.bringSubviewToFront(galleryView)
       bottomViewBottom.constant = 226
     } else if bottomViewBottom.constant == 226 {
-      view.sendSubviewToBack(galleryView)
+      bottomView.chatTextView.becomeFirstResponder()
       
     }
     UIView.animate(withDuration: 0.18) {
