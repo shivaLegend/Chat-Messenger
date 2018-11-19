@@ -167,6 +167,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreGraphics;
 @import CoreMedia;
 @import Foundation;
+@import ObjectiveC;
 @import UIKit;
 #endif
 
@@ -228,25 +229,40 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone14BottomChatView")
 - (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
 @end
 
-@class AVCaptureOutput;
-@class AVCaptureConnection;
+
+SWIFT_CLASS("_TtC20Chat_Messenger_Clone19CameraCaptureOutput")
+@interface CameraCaptureOutput : NSObject <AVCapturePhotoCaptureDelegate>
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class NSBundle;
 
 SWIFT_CLASS("_TtC20Chat_Messenger_Clone21CaptureViewController")
-@interface CaptureViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
+@interface CaptureViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified closeButton;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified takePhotoButton;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified switchButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified tempButtom;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified temp2Button;
 @property (nonatomic, readonly) BOOL prefersStatusBarHidden;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidLoad;
 - (void)viewDidLayoutSubviews;
-- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 - (IBAction)closeClickButton:(id _Nonnull)sender;
 - (IBAction)cameraClickButton:(id _Nonnull)sender;
 - (IBAction)switchCameraClickButton:(id _Nonnull)sender;
+- (IBAction)takeVideoClickButton:(id _Nonnull)sender;
+- (IBAction)stopVideo:(id _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class AVCapturePhotoOutput;
+@class AVCaptureResolvedPhotoSettings;
+@class AVCaptureBracketedStillImageSettings;
+
+@interface CaptureViewController (SWIFT_EXTENSION(Chat_Messenger_Clone)) <AVCapturePhotoCaptureDelegate>
+- (void)captureOutput:(AVCapturePhotoOutput * _Nonnull)output didFinishProcessingPhotoSampleBuffer:(CMSampleBufferRef _Nullable)photoSampleBuffer previewPhotoSampleBuffer:(CMSampleBufferRef _Nullable)previewPhotoSampleBuffer resolvedSettings:(AVCaptureResolvedPhotoSettings * _Nonnull)resolvedSettings bracketSettings:(AVCaptureBracketedStillImageSettings * _Nullable)bracketSettings error:(NSError * _Nullable)error;
 @end
 
 @class UILabel;

@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		M26tBU6QimOCSOWNcDpSavj7agQ=
+		zJoaBqJg8Wt7mEXwgD0L+OmzaA4=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		JK6eAAZc77UpG0DLA9XNaFlRj3s=
+		S9KP6hFU/oX72m8JTDfFCKmgl4Y=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -18,23 +18,23 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		iavXmYuNKTD50+I0uwPrIDjdkhY=
+		lzcdwz+R1rYA+Iy0P66SYB/JKj0=
 		</data>
 		<key>Base.lproj/Main.storyboardc/8WP-Rn-1ar-view-Eqp-qf-QWg.nib</key>
 		<data>
-		t5/utxHWD0xc0/fJk8aIZoVacNU=
+		3rqAMfyeSVlnRK1Z5oFT7CYHdig=
 		</data>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<data>
-		qBRJBRrFHTMof+xVTpERGZKjiTw=
+		yLn2oQjBQZ408aPQXdVkIzPy4+4=
 		</data>
 		<key>Base.lproj/Main.storyboardc/CaptureViewController.nib</key>
 		<data>
-		RvWkhHn3eLsub/oAt4IkHP6paAY=
+		T5HJEdov3CbAA28X9px2TQqYdT8=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Ec7-xP-keQ-view-Xc3-Cx-ugA.nib</key>
 		<data>
-		WifAdQXoj4ajPUT3K8qCqojv0UM=
+		V8h5DQnRGG/KEg7Gi/fbz241Ig8=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -42,27 +42,27 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/PhotoViewController.nib</key>
 		<data>
-		0oFZlDwXqy+7NTFTSmryKZMNdOM=
+		1zXTY+QZCU92yb8z09jbWOEqbKY=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-3Rs-EO-X5J.nib</key>
 		<data>
-		NC/H0MX89QeqQE8ZqTzMOBIn3MM=
+		7jcPO6cD5cC1foyveL7/DuJRKIc=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-Ec7-xP-keQ.nib</key>
 		<data>
-		/IeLTiVw6fJyRupnq9PcFudAvK8=
+		W5V6t2HlTZbqy3XiDmfxd8AyQ/w=
 		</data>
 		<key>Base.lproj/Main.storyboardc/aDT-BE-mCf-view-WlA-C3-1Rz.nib</key>
 		<data>
-		KM77KvVuC5DfjH7j4+0L3W6UPIw=
+		ysEetIzNMWnpa9yGYIH/WjTALo0=
 		</data>
 		<key>BottomChatView.nib</key>
 		<data>
-		UfBgyHZ73O1IByXjfeATDYv0dfg=
+		nv+NOzIcbdj9hFdQajW7YueXlkI=
 		</data>
 		<key>ChatTableViewCell.nib</key>
 		<data>
-		Xon9Gq0j28m1EsGbYNtHMEWToP8=
+		frbCdUhm38HpjJhgpMli54/fH2U=
 		</data>
 		<key>Frameworks/libswiftAVFoundation.dylib</key>
 		<data>
@@ -155,14 +155,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+5QIor61XBEK1y4RhER1tnPVgAIZ6+zvIPS5qpp5WJ8=
+			w5QvxrtRDVdQgaj+9kBja/YxoJqKOCDII/wtJS6+zQ4=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wF1MvpcR3yQ8b87YhFKw2bRZaOLeTbmCmtr2nFe3zvw=
+			AymxI/fHwrqESr9+U3Cfmmk5jcbi0TKI4J8AwhNufBM=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -176,35 +176,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NoahLfmMnZ/tZCRaO8t7ogWMZvEsO+NsWxWBxFc0bZw=
+			JZFJBwm3k641qgJl1XTWHQSkWp2bGmEr/zvnrET/0Po=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/8WP-Rn-1ar-view-Eqp-qf-QWg.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			C/I6/1/hx6IiyWk6OOmKUpfrrNDZQQFQIx8a12eomAo=
+			OIQZkRNwlkzb1Sgdo/YkDHb0FJaf2OeQ7UPgiWTKEqU=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vHlK5WPIKo7ViSN7szhwDOmesZSIO/DyzkjuD7A98Sg=
+			nqrW7aMD4UQkr8IFu6RnNFOEeM7NdnBk/XOFRg3r6gU=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/CaptureViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FQfw5v0UzzizvimkHnQPPSDUB6Fxh9c8w8FhL17OzTs=
+			wX+6HYZ1ucmgPSLhEV+jJhfQGG3iVh6qysUbKOGm9Zs=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Ec7-xP-keQ-view-Xc3-Cx-ugA.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vxGeDNr2BMCvb7FeyyR3sxgHoGw8YBX4iXBKSQJYsT8=
+			1SdejOp9Y7VHCpYwgWUoR+cL4BqV+rFXO1u7pD2yq0k=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
@@ -218,42 +218,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kUHxr70y7qzjX/Raa4EgZPdgKmVKFMcoffvMak0mJ4U=
+			zhc6ysPhSmFtO2wicAAxbUE2RDemZN4PoRTHu6jK4sE=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-3Rs-EO-X5J.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5wIUKo6tYZ8DJV6rVL65ZJedJ0V9cYG/DmejRzoCR44=
+			qKGDsFY0c0Q3QY0SeVoOrTjNovxFolmYDQw3w3E56Z8=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UIViewController-Ec7-xP-keQ.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cMZ237EZP0X6kyJZGpKyTZj8oLyPaxlU1KTgUHv0jX4=
+			SruMaeIc+S/g1buRCfy7vCcDyjgOY5bL1Ncp9I5EKtE=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/aDT-BE-mCf-view-WlA-C3-1Rz.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i2MwXwnVsEaursyzdwTIyTIJjWuXtgD6izSU5vojHh8=
+			TW4rv7wLzZIk4CuyIDh+qh2maHfl8fnYq2o3NyYiR9s=
 			</data>
 		</dict>
 		<key>BottomChatView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			C5+SI8KI/MWO+sYkTsPHuAX9bRal400a/6Qq++FU2i0=
+			pyvbcCYnz23AVDxd+MkSiSeKne+AwSdybgf7sa1QYDM=
 			</data>
 		</dict>
 		<key>ChatTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kr+ZnaGY74Kva8h+3Ni2XmKE4UnfT11s8NFViMtgZrI=
+			oUpMKJVgFM+RszyBHrIW3MLdsGxp3p+rLDEuim0A87o=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftAVFoundation.dylib</key>
