@@ -1,9 +1,9 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "150c0c30a4b92afcdfd59461f433ccc1"
-build_time: [1542595425, 159753000]
+build_time: [1542682226, 131755000]
 inputs:
   "/Users/nguyenductai/Desktop/Chat Messenger/Chat-Messenger/Chat-Messenger-Clone/Controllers/ViewController.swift": [1542466614, 0]
-  "/Users/nguyenductai/Desktop/Chat Messenger/Chat-Messenger/Chat-Messenger-Clone/Controllers/CaptureViewController.swift": [1542595425, 0]
+  "/Users/nguyenductai/Desktop/Chat Messenger/Chat-Messenger/Chat-Messenger-Clone/Controllers/CaptureViewController.swift": [1542682225, 0]
   "/Users/nguyenductai/Desktop/Chat Messenger/Chat-Messenger/Chat-Messenger-Clone/Controllers/ChatViewController.swift": [1542466614, 0]
   "/Users/nguyenductai/Desktop/Chat Messenger/Chat-Messenger/Chat-Messenger-Clone/Views/Chat VC/ChatTableViewCell.swift": [1542466614, 0]
   "/Users/nguyenductai/Desktop/Chat Messenger/Chat-Messenger/Chat-Messenger-Clone/Controllers/PhotoViewController.swift": [1542466614, 0]

@@ -34,9 +34,11 @@ class CaptureViewController: UIViewController {
   
   //Output
 //  var capturePhotoOutput: AVCapturePhotoOutput!
-  var captureMovieFileOutput: AVCaptureMovieFileOutput!
+  let movieOutput = AVCaptureMovieFileOutput()
   var previewLayer =  AVCaptureVideoPreviewLayer()
   var photoOutput = AVCapturePhotoOutput()
+  var outputURL: URL!
+
   
   //Session
   var captureSession = AVCaptureSession()
@@ -109,6 +111,9 @@ class CaptureViewController: UIViewController {
     guard captureSession.canAddOutput(photoOutput) else {return}
     captureSession.sessionPreset = .photo
     captureSession.addOutput(photoOutput)
+    
+    guard captureSession.canAddOutput(movieOutput) else {return}
+    captureSession.addOutput(movieOutput)
   
     captureSession.commitConfiguration()
     
@@ -217,6 +222,21 @@ extension CaptureViewController: AVCapturePhotoCaptureDelegate {
     }
     
   }
+}
+
+extension CaptureViewController: AVCaptureFileOutputRecordingDelegate {
+  func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
+    if (error != nil) {
+      print("Error recording movie: \(error!.localizedDescription)")
+    } else {
+      
+      _ = outputURL as URL
+      
+    }
+    outputURL = nil
+  }
+  
+  
 }
 
 

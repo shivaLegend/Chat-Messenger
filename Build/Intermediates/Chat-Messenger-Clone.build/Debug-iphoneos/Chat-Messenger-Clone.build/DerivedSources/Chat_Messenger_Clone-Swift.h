@@ -257,6 +257,13 @@ SWIFT_CLASS("_TtC20Chat_Messenger_Clone21CaptureViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class AVCaptureFileOutput;
+@class AVCaptureConnection;
+
+@interface CaptureViewController (SWIFT_EXTENSION(Chat_Messenger_Clone)) <AVCaptureFileOutputRecordingDelegate>
+- (void)captureOutput:(AVCaptureFileOutput * _Nonnull)output didFinishRecordingToOutputFileAtURL:(NSURL * _Nonnull)outputFileURL fromConnections:(NSArray<AVCaptureConnection *> * _Nonnull)connections error:(NSError * _Nullable)error;
+@end
+
 @class AVCapturePhotoOutput;
 @class AVCaptureResolvedPhotoSettings;
 @class AVCaptureBracketedStillImageSettings;
