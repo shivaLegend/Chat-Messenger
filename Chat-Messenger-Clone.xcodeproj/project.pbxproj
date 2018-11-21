@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF2593B8219D741C007B9142 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2593B7219D741C007B9142 /* PhotoViewController.swift */; };
 		CF6ED80F2198679900625628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6ED80E2198679900625628 /* AppDelegate.swift */; };
 		CF6ED8112198679900625628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6ED8102198679900625628 /* ViewController.swift */; };
 		CF6ED8142198679900625628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6ED8122198679900625628 /* Main.storyboard */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CF2593B7219D741C007B9142 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		CF6ED80B2198679900625628 /* Chat-Messenger-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat-Messenger-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6ED80E2198679900625628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF6ED8102198679900625628 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				CF6ED8102198679900625628 /* ViewController.swift */,
 				CF6ED823219868E400625628 /* ChatViewController.swift */,
 				CFB7B7F8219C504C00B4BC59 /* CaptureViewController.swift */,
-				CF2593B7219D741C007B9142 /* PhotoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -194,7 +191,6 @@
 				CFB7B7F9219C504C00B4BC59 /* CaptureViewController.swift in Sources */,
 				CF6ED824219868E400625628 /* ChatViewController.swift in Sources */,
 				CF6ED82C2198823700625628 /* ChatTableViewCell.swift in Sources */,
-				CF2593B8219D741C007B9142 /* PhotoViewController.swift in Sources */,
 				CF6ED80F2198679900625628 /* AppDelegate.swift in Sources */,
 				CF6ED82921986D4F00625628 /* BottomChatView.swift in Sources */,
 			);

@@ -49,8 +49,6 @@ class ChatViewController: UIViewController {
       messages.append("If soul reincarnation is real, then with an increasing population, why doesn't the world run out of souls?")
     }
     
-    
-    
     bottomView.delegate = self
     
     chatTableView.delegate = self

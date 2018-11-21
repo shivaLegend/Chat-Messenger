@@ -124,51 +124,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIh-Jy-Fx4">
-                                <rect key="frame" x="18" y="18" width="37" height="37"/>
+                                <rect key="frame" x="18" y="18" width="64" height="64"/>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="closeClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="wtZ-7h-v4a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjk-mA-CNb">
-                                <rect key="frame" x="175" y="617" width="64" height="64"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFv-UU-FwA" userLabel="View Output">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kpX-Sz-01t">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="send output" translatesAutoresizingMaskIntoConstraints="NO" id="Y9I-Ny-Fgb">
+                                        <rect key="frame" x="324" y="620" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="PPm-ok-SG7"/>
+                                            <constraint firstAttribute="height" constant="60" id="v01-kV-kGq"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="Eap-BR-i19"/>
-                                    <constraint firstAttribute="height" constant="64" id="gce-xq-LDT"/>
+                                    <constraint firstItem="kpX-Sz-01t" firstAttribute="top" secondItem="xFv-UU-FwA" secondAttribute="top" id="Epg-yn-zMR"/>
+                                    <constraint firstAttribute="bottom" secondItem="kpX-Sz-01t" secondAttribute="bottom" id="LmC-L1-DSp"/>
+                                    <constraint firstAttribute="trailing" secondItem="kpX-Sz-01t" secondAttribute="trailing" id="PBy-Sj-Njd"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y9I-Ny-Fgb" secondAttribute="trailing" constant="30" id="Ye2-JH-baL"/>
+                                    <constraint firstItem="Y9I-Ny-Fgb" firstAttribute="top" secondItem="xFv-UU-FwA" secondAttribute="top" constant="620" id="c38-cT-pYc"/>
+                                    <constraint firstItem="kpX-Sz-01t" firstAttribute="leading" secondItem="xFv-UU-FwA" secondAttribute="leading" id="eiK-xt-0cu"/>
                                 </constraints>
-                                <state key="normal" image="circle"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjk-mA-CNb">
+                                <rect key="frame" x="179" y="626" width="56" height="55"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="3Hc-4m-m3E"/>
+                                    <constraint firstAttribute="width" constant="56" id="dRf-u7-lsj"/>
+                                </constraints>
+                                <state key="normal" image="video_record"/>
                                 <connections>
-                                    <action selector="cameraClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="RZq-Jo-eUb"/>
+                                    <outletCollection property="gestureRecognizers" destination="Zzk-gv-T0k" appends="YES" id="eBh-H4-xFB"/>
+                                    <outletCollection property="gestureRecognizers" destination="2Zf-dK-hGG" appends="YES" id="447-zU-aIz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJd-G0-UyT">
-                                <rect key="frame" x="343" y="644" width="37" height="37"/>
+                                <rect key="frame" x="320" y="621" width="60" height="60"/>
                                 <state key="normal" image="switch"/>
                                 <connections>
                                     <action selector="switchCameraClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="6fw-Ij-b23"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFb-pq-UfV">
-                                <rect key="frame" x="175" y="336" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="A8M-fa-h3o"/>
-                                    <constraint firstAttribute="height" constant="64" id="fsA-pm-t4R"/>
-                                </constraints>
-                                <state key="normal" image="circle"/>
-                                <connections>
-                                    <action selector="takeVideoClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="85q-Ku-vTm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYe-8m-nHZ">
-                                <rect key="frame" x="299" y="451" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="VPn-2i-0vS"/>
-                                    <constraint firstAttribute="width" constant="64" id="c4C-dj-hb2"/>
-                                </constraints>
-                                <state key="normal" image="circle"/>
-                                <connections>
-                                    <action selector="stopVideo:" destination="aDT-BE-mCf" eventType="touchUpInside" id="Qiv-iP-Nd7"/>
-                                    <action selector="takeVideoClickButton:" destination="aDT-BE-mCf" eventType="touchUpInside" id="Voj-rv-GH9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -176,70 +179,38 @@
                         <constraints>
                             <constraint firstItem="MJd-G0-UyT" firstAttribute="bottom" secondItem="fjk-mA-CNb" secondAttribute="bottom" id="32s-c4-9aw"/>
                             <constraint firstItem="uIh-Jy-Fx4" firstAttribute="leading" secondItem="WlA-C3-1Rz" secondAttribute="leading" constant="18" id="5Wz-rC-lmh"/>
-                            <constraint firstAttribute="trailing" secondItem="HYe-8m-nHZ" secondAttribute="trailing" constant="51" id="MMs-bT-pcz"/>
+                            <constraint firstAttribute="trailing" secondItem="xFv-UU-FwA" secondAttribute="trailing" id="Icb-uX-Q7C"/>
                             <constraint firstItem="fjk-mA-CNb" firstAttribute="centerX" secondItem="WlA-C3-1Rz" secondAttribute="centerX" id="NCm-pK-roK"/>
-                            <constraint firstItem="MJd-G0-UyT" firstAttribute="top" secondItem="HYe-8m-nHZ" secondAttribute="bottom" constant="129" id="NNo-ah-Dlc"/>
-                            <constraint firstItem="sFb-pq-UfV" firstAttribute="centerY" secondItem="WlA-C3-1Rz" secondAttribute="centerY" id="QZg-c6-vR4"/>
-                            <constraint firstItem="HYe-8m-nHZ" firstAttribute="top" secondItem="KLN-8A-rav" secondAttribute="bottom" constant="431" id="Vbl-AA-hxV"/>
-                            <constraint firstItem="sFb-pq-UfV" firstAttribute="centerX" secondItem="WlA-C3-1Rz" secondAttribute="centerX" id="XB7-Mq-CbW"/>
+                            <constraint firstItem="xFv-UU-FwA" firstAttribute="leading" secondItem="WlA-C3-1Rz" secondAttribute="leading" id="SgA-Ab-du1"/>
                             <constraint firstAttribute="trailing" secondItem="MJd-G0-UyT" secondAttribute="trailing" constant="34" id="cPf-2Y-SF8"/>
                             <constraint firstItem="19T-kQ-r9A" firstAttribute="top" secondItem="fjk-mA-CNb" secondAttribute="bottom" constant="55" id="cqb-3F-W6Y"/>
-                            <constraint firstItem="HYe-8m-nHZ" firstAttribute="leading" secondItem="WlA-C3-1Rz" secondAttribute="leading" constant="299" id="gYx-qR-xgH"/>
+                            <constraint firstItem="xFv-UU-FwA" firstAttribute="top" secondItem="WlA-C3-1Rz" secondAttribute="top" id="g4c-QE-rwV"/>
                             <constraint firstItem="uIh-Jy-Fx4" firstAttribute="top" secondItem="WlA-C3-1Rz" secondAttribute="top" constant="18" id="jbo-vj-9kx"/>
+                            <constraint firstItem="19T-kQ-r9A" firstAttribute="top" secondItem="xFv-UU-FwA" secondAttribute="bottom" id="qwM-DX-FO2"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="uIh-Jy-Fx4" id="vb1-5R-A9A"/>
+                        <outlet property="outputImageView" destination="kpX-Sz-01t" id="AS7-Wp-fbb"/>
+                        <outlet property="outputView" destination="xFv-UU-FwA" id="gTK-sk-ulB"/>
+                        <outlet property="sendImageView" destination="Y9I-Ny-Fgb" id="4rl-1D-5Ri"/>
                         <outlet property="switchButton" destination="MJd-G0-UyT" id="yhd-cq-ETD"/>
                         <outlet property="takePhotoButton" destination="fjk-mA-CNb" id="ini-Yf-hmy"/>
-                        <outlet property="temp2Button" destination="HYe-8m-nHZ" id="RKz-oV-tuc"/>
-                        <outlet property="tempButtom" destination="sFb-pq-UfV" id="Quq-Sd-Dyy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4xQ-bJ-EcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Zzk-gv-T0k" userLabel="Tap">
+                    <connections>
+                        <action selector="tappedButton:" destination="aDT-BE-mCf" id="cd4-sO-Za2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="2Zf-dK-hGG">
+                    <connections>
+                        <action selector="longPressedButton:" destination="aDT-BE-mCf" id="j01-9s-yq8"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2853.6231884057975" y="132.88043478260872"/>
-        </scene>
-        <!--Photo View Controller-->
-        <scene sceneID="nym-9t-tWc">
-            <objects>
-                <viewController storyboardIdentifier="PhotoViewController" id="8WP-Rn-1ar" customClass="PhotoViewController" customModule="Chat_Messenger_Clone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jF6-kH-X94"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y3a-kY-ccP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Eqp-qf-QWg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9su-6I-zu2">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwJ-e1-2Tx">
-                                <rect key="frame" x="15" y="15" width="25" height="25"/>
-                                <state key="normal" image="back"/>
-                                <connections>
-                                    <action selector="backClickButton:" destination="8WP-Rn-1ar" eventType="touchUpInside" id="wkK-Fj-DUx"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9su-6I-zu2" secondAttribute="trailing" id="0Ik-me-8p4"/>
-                            <constraint firstItem="EwJ-e1-2Tx" firstAttribute="leading" secondItem="Eqp-qf-QWg" secondAttribute="leading" constant="15" id="6qz-4t-51D"/>
-                            <constraint firstItem="9su-6I-zu2" firstAttribute="leading" secondItem="Eqp-qf-QWg" secondAttribute="leading" id="GOD-fs-KC9"/>
-                            <constraint firstItem="EwJ-e1-2Tx" firstAttribute="top" secondItem="Eqp-qf-QWg" secondAttribute="top" constant="15" id="HsJ-2w-m5p"/>
-                            <constraint firstItem="Y3a-kY-ccP" firstAttribute="top" secondItem="9su-6I-zu2" secondAttribute="bottom" id="Wyb-gx-8nD"/>
-                            <constraint firstItem="9su-6I-zu2" firstAttribute="top" secondItem="Eqp-qf-QWg" secondAttribute="top" id="y4d-ah-vBG"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="imageView" destination="9su-6I-zu2" id="hKv-vh-7WM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kve-WP-WgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3607" y="155"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WYR-9m-XOn">
@@ -261,9 +232,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="37.5" height="37.5"/>
-        <image name="circle" width="64" height="64"/>
-        <image name="close" width="37.5" height="37.5"/>
-        <image name="switch" width="37.5" height="37.5"/>
+        <image name="close" width="64" height="64"/>
+        <image name="send output" width="36" height="36"/>
+        <image name="switch" width="60" height="60"/>
+        <image name="video_record" width="56" height="55"/>
     </resources>
 </document>
