@@ -29,6 +29,9 @@
                         <constraint firstAttribute="height" constant="25" id="VZp-Fa-8c7"/>
                     </constraints>
                     <state key="normal" image="add"/>
+                    <connections>
+                        <action selector="moreClickButton:" destination="-1" eventType="touchUpInside" id="Vdg-fs-22z"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLh-1o-fs2">
                     <rect key="frame" x="50" y="12.5" width="25" height="25"/>
@@ -107,10 +110,10 @@
         </view>
     </objects>
     <resources>
-        <image name="add" width="15" height="15"/>
-        <image name="camera" width="13" height="13"/>
-        <image name="gallery" width="24" height="24"/>
-        <image name="send" width="32" height="32"/>
-        <image name="voice" width="25" height="25"/>
+        <image name="add" width="22.5" height="22.5"/>
+        <image name="camera" width="19.5" height="19.5"/>
+        <image name="gallery" width="36" height="36"/>
+        <image name="send" width="48" height="48"/>
+        <image name="voice" width="37.5" height="37.5"/>
     </resources>
 </document>

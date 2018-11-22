@@ -63,7 +63,7 @@ class CaptureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestAuthorizationForCapture()
-        
+       
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

@@ -14,10 +14,8 @@ protocol BottomChatViewDelegate {
   func sendMessage()
   func openCamera()
   func openGallery()
-    
+
 }
-
-
 
 class BottomChatView: UIView {
   @IBOutlet weak var chatTextView: UITextView!
@@ -48,7 +46,10 @@ class BottomChatView: UIView {
     chatTextView.delegate = self
     minHeightTextView = chatTextView.frame.height
   }
-  
+    @IBAction func moreClickButton(_ sender: Any) {
+        
+    }
+    
   @IBAction func cameraClickButton(_ sender: Any) {
     
     delegate?.openCamera()

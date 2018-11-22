@@ -7,69 +7,82 @@
 //
 
 import UIKit
+import Photos
 
 class ChatViewController: UIViewController {
-  
-  
-  @IBOutlet weak var tableViewTopHeight: NSLayoutConstraint!
-  @IBOutlet weak var bottomView: BottomChatView!
-  @IBOutlet weak var chatTableView: UITableView!
-  @IBOutlet weak var bottomViewBottom: NSLayoutConstraint!
-  @IBOutlet weak var galleryView: UIView!
-  
-  
-  var messages: [String] = []
-  
-  var minHeightTextView: CGFloat!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    navigationController?.navigationBar.alpha = 0.7
-    minHeightTextView = bottomView.chatTextView.frame.height
     
     
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(keyboardWillShow),
-      name: UIResponder.keyboardWillShowNotification,
-      object: nil
-    )
+    @IBOutlet weak var tableViewTopHeight: NSLayoutConstraint!
+    @IBOutlet weak var bottomView: BottomChatView!
+    @IBOutlet weak var chatTableView: UITableView!
+    @IBOutlet weak var bottomViewBottom: NSLayoutConstraint!
+    @IBOutlet weak var galleryView: UIView!
+    @IBOutlet weak var galleryCollectionView: UICollectionView!
     
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(keyboardWillShow),
-      name: UIResponder.keyboardWillHideNotification,
-      object: nil
-      
-      
-    )
+    var imageArray = [UIImage]()
     
-    for _ in 1...1000 {
-      messages.append("If soul reincarnation is real, then with an increasing population, why doesn't the world run out of souls?")
+    var messages: [String] = []
+    
+    var minHeightTextView: CGFloat!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
     }
-    
-    bottomView.delegate = self
-    
-    chatTableView.delegate = self
-    chatTableView.dataSource =  self
-    chatTableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil) , forCellReuseIdentifier: "ChatTableViewCell")
-    chatTableView.transform = CGAffineTransform(rotationAngle: (-.pi))
-    
-    //add target table view cell
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector (tableViewTapped))
-    
-    chatTableView.addGestureRecognizer(tapGesture)
-    
-    //add long gesture for button voice
-    let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(buttonVoiceLongTap(_:)))
-    
-    bottomView.voiceButton.addGestureRecognizer(longGesture)
-    
-    configureTableView()
-    
-    
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationController?.navigationBar.alpha = 0.7
+        minHeightTextView = bottomView.chatTextView.frame.height
+        
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+            
+            
+        )
+        
+        for _ in 1...1000 {
+            messages.append("If soul reincarnation is real, then with an increasing population, why doesn't the world run out of souls?")
+        }
+        
+        bottomView.delegate = self
+        
+        chatTableView.delegate = self
+        chatTableView.dataSource =  self
+        chatTableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil) , forCellReuseIdentifier: "ChatTableViewCell")
+        chatTableView.transform = CGAffineTransform(rotationAngle: (-.pi))
+        
+        //add target table view cell
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector (tableViewTapped))
+        
+        chatTableView.addGestureRecognizer(tapGesture)
+        
+        //add long gesture for button voice
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(buttonVoiceLongTap(_:)))
+        
+        bottomView.voiceButton.addGestureRecognizer(longGesture)
+        
+        configureTableView()
+        
+        // Delegate and datasource for UICollectionView
+        galleryCollectionView.dataSource = self
+        galleryCollectionView.delegate = self
+        
+        requestAccessPhoto()
+        grabPhotos()
+    }
     
     @objc func buttonVoiceLongTap(_ sender : UIGestureRecognizer){
         
@@ -86,111 +99,233 @@ class ChatViewController: UIViewController {
             print(sender.location(in: view.superview))
         }
     }
-  
-  
-  @objc func tableViewTapped() {
-    bottomView.chatTextView.endEditing(true)
-    //    tableViewTopHeight.constant = 0
-    
-    //    bottomView.chatTextFieldLeading.constant = 110
-    //    UIView.animate(withDuration: 0.25) {
-    //      self.view.layoutIfNeeded()
-    //    }
-  }
-  
-  func configureTableView() {
-    chatTableView.rowHeight = UITableView.automaticDimension
-    chatTableView.estimatedRowHeight = 40
-  }
-  
-  @objc func keyboardWillShow(_ notification: Notification) {
-    guard let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
-      print("show keyboard is error")
-      return
-    }
-    let keyboardRectangle = keyboardFrame.cgRectValue
-    let keyboardHeight = keyboardRectangle.height
     
     
-    guard let keyboardDuration: NSNumber = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {
-      print("keyboard duration is error")
-      return
+    @objc func tableViewTapped() {
+        bottomView.chatTextView.endEditing(true)
+        //    tableViewTopHeight.constant = 0
+        
+        //    bottomView.chatTextFieldLeading.constant = 110
+        //    UIView.animate(withDuration: 0.25) {
+        //      self.view.layoutIfNeeded()
+        //    }
     }
     
-    guard let keyboardCurve: UInt = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else {
-      print("keyboard curve is error")
-      return
+    func configureTableView() {
+        chatTableView.rowHeight = UITableView.automaticDimension
+        chatTableView.estimatedRowHeight = 40
     }
     
-    let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            print("show keyboard is error")
+            return
+        }
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        
+        
+        guard let keyboardDuration: NSNumber = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {
+            print("keyboard duration is error")
+            return
+        }
+        
+        guard let keyboardCurve: UInt = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else {
+            print("keyboard curve is error")
+            return
+        }
+        
+        let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
+        
+        bottomViewBottom.constant = isKeyboardShowing ? keyboardHeight : 0
+        bottomView.chatTextViewLeading.constant = isKeyboardShowing ? 10 : 110
+        
+        UIView.animate(withDuration: TimeInterval(truncating: keyboardDuration), delay: 0.0, options: UIView.AnimationOptions(rawValue: keyboardCurve), animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+    }
     
-    bottomViewBottom.constant = isKeyboardShowing ? keyboardHeight : 0
-    bottomView.chatTextViewLeading.constant = isKeyboardShowing ? 10 : 110
-    UIView.animate(withDuration: TimeInterval(truncating: keyboardDuration), delay: 0.0, options: UIView.AnimationOptions(rawValue: keyboardCurve), animations: {
-      self.view.layoutIfNeeded()
-    }, completion: nil)
+    //MARK: - Access photo gallery
+    func requestAccessPhoto() {
+        let photos = PHPhotoLibrary.authorizationStatus()
+        if photos == .notDetermined {
+            PHPhotoLibrary.requestAuthorization { (status) in
+                if status == .authorized {
+                    print("you accessed")
+                    
+                } else {
+                    print("App need access photo library")
+                    let alert = UIAlertController(title: "Photos Access Denied", message: "App needs access to photos library", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert,animated: true, completion: nil)
+                }
+            }
+        } else if photos == .authorized {
+            print("you accessed before")
+            
+        }
+    }
+
+    func grabPhotos() {
+        imageArray = []
+        DispatchQueue.global(qos: .background ).async {
+            print("this is run on the background queue")
+            
+            let imgManager = PHImageManager.default()
+            
+            let requestOptions = PHImageRequestOptions()
+            requestOptions.isSynchronous = true
+            requestOptions.deliveryMode = .highQualityFormat
+            
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            print(fetchResult)
+            print(fetchResult.count)
+
+            if fetchResult.count > 0 {
+                for i in 0..<fetchResult.count {
+                    imgManager.requestImage(for: fetchResult.object(at: i) as PHAsset, targetSize: CGSize(width: (UIScreen.main.bounds.width - 10)/2, height: (UIScreen.main.bounds.width - 10)/2), contentMode: .aspectFit, options: requestOptions, resultHandler: { (image, error) in
+                        self.imageArray.append(image!)
+                    })
+                }
+            } else {
+                print("There don't photos")
+            }
+        }
+        DispatchQueue.main.async {
+            self.galleryCollectionView.reloadData()
+            print("reload data")
+            
+        }
+        
+    }
     
-  }
-  
-  
-  
+    @IBAction func listPhotoButton(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GalleryViewController") as! GalleryViewController
+        vc.imageArray = self.imageArray
+        present(vc,animated: true,completion: {
+            self.bottomViewBottom.constant = 0
+            UIView.animate(withDuration: 0.18, animations: {
+                self.view.layoutIfNeeded()
+            })
+        })
+        
+        
+    }
+    
+    
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return messages.count
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell", for: indexPath) as! ChatTableViewCell
-    cell.textLbl.text = messages[indexPath.row]
-    cell.transform = CGAffineTransform(rotationAngle: (-.pi))
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
     
-    return cell
-  }
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell", for: indexPath) as! ChatTableViewCell
+        cell.textLbl.text = messages[indexPath.row]
+        cell.transform = CGAffineTransform(rotationAngle: (-.pi))
+        
+        return cell
+    }
     
-  }
-  
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    
 }
 
-
-extension ChatViewController: BottomChatViewDelegate {
-
-  func openGallery() {
-    if bottomViewBottom.constant == 0 {
-      view.bringSubviewToFront(galleryView)
-      bottomViewBottom.constant = 226
-    } else if bottomViewBottom.constant == 226 {
-      bottomView.chatTextView.becomeFirstResponder()
-      
-    }
-    UIView.animate(withDuration: 0.18) {
-      self.view.layoutIfNeeded()
+//MARK: -UICollectionView Delegate & Datasource
+extension ChatViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if imageArray.count == 0 { //if imageArray still load
+            return 100
+        }
+        return imageArray.count
     }
     
-  }
-  func openCamera() {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let controller = storyboard.instantiateViewController(withIdentifier: "CaptureViewController")
-    self.present(controller, animated: true, completion: nil)
-  }
-  
-  
-  func sendMessage() {
-    if !bottomView.chatTextView.text.isEmpty {
-      let message = bottomView.chatTextView.text as String
-      messages.insert(message, at: 0)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
+        let tempImageView = UIImageView(image: UIImage(named: "picture"))
+        cell.backgroundView = tempImageView
+        if imageArray.count > 0 {
+            
+            let imageView = UIImageView(image: imageArray[indexPath.row])
+            imageView.frame = CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 10)/2, height: (UIScreen.main.bounds.width - 10)/2)
+            cell.addSubview(imageView)
+        }
+        
+        return cell
     }
-    bottomView.chatTextView.text = ""
-    bottomView.chatTextViewHeightConstraint(height: minHeightTextView)
-    chatTableView.reloadData()
-  }
-  
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width - 10)/2, height: (UIScreen.main.bounds.width - 10)/2)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+   
+    
+    
+}
+extension ChatViewController: BottomChatViewDelegate {
+    
+    func openGallery() {
+        
+        if bottomViewBottom.constant == 0 {
+            view.bringSubviewToFront(galleryView)
+            bottomViewBottom.constant = 226
+        } else if bottomViewBottom.constant == 226 {
+            bottomView.chatTextView.becomeFirstResponder()
+            
+        }
+        UIView.animate(withDuration: 0.18) {
+            self.view.layoutIfNeeded()
+        }
+        
+    }
+    func openCamera() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "CaptureViewController")
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    
+    func sendMessage() {
+        if !bottomView.chatTextView.text.isEmpty {
+            let message = bottomView.chatTextView.text as String
+            messages.insert(message, at: 0)
+        }
+        bottomView.chatTextView.text = ""
+        bottomView.chatTextViewHeightConstraint(height: minHeightTextView)
+        chatTableView.reloadData()
+    }
+    
+}
+
+extension ChatViewController: UIScrollViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if scrollView == chatTableView {
+            if velocity.y > 0 {
+                bottomViewBottom.constant = 0
+                bottomView.chatTextView.resignFirstResponder()
+            } else if velocity.y < 0 {
+                print("<0")
+            }
+            UIView.animate(withDuration: 0.18) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
 }
 

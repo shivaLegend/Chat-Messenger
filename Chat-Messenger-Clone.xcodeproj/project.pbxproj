@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF199DB421A68E3500BEEDD1 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF199DB321A68E3500BEEDD1 /* GalleryViewController.swift */; };
+		CF199DBE21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF199DBC21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.swift */; };
+		CF199DBF21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF199DBD21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.xib */; };
 		CF6ED80F2198679900625628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6ED80E2198679900625628 /* AppDelegate.swift */; };
 		CF6ED8112198679900625628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6ED8102198679900625628 /* ViewController.swift */; };
 		CF6ED8142198679900625628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6ED8122198679900625628 /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF199DB321A68E3500BEEDD1 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		CF199DBC21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListCollectionViewCell.swift; sourceTree = "<group>"; };
+		CF199DBD21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosListCollectionViewCell.xib; sourceTree = "<group>"; };
 		CF6ED80B2198679900625628 /* Chat-Messenger-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat-Messenger-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6ED80E2198679900625628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF6ED8102198679900625628 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF199DB521A6970F00BEEDD1 /* GalleryVC */ = {
+			isa = PBXGroup;
+			children = (
+				CF199DBC21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.swift */,
+				CF199DBD21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.xib */,
+			);
+			path = GalleryVC;
+			sourceTree = "<group>";
+		};
 		CF6ED8022198679800625628 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +100,7 @@
 		CF6ED8212198689900625628 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF199DB521A6970F00BEEDD1 /* GalleryVC */,
 				CF6ED82521986C4500625628 /* Chat VC */,
 				CF6ED8122198679900625628 /* Main.storyboard */,
 				CF6ED8172198679900625628 /* LaunchScreen.storyboard */,
@@ -99,6 +115,7 @@
 				CF6ED8102198679900625628 /* ViewController.swift */,
 				CF6ED823219868E400625628 /* ChatViewController.swift */,
 				CFB7B7F8219C504C00B4BC59 /* CaptureViewController.swift */,
+				CF199DB321A68E3500BEEDD1 /* GalleryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,6 +192,7 @@
 				CF6ED8192198679900625628 /* LaunchScreen.storyboard in Resources */,
 				CFCB0921219C2E9E0072F1C8 /* BottomChatView.xib in Resources */,
 				CF6ED8162198679900625628 /* Assets.xcassets in Resources */,
+				CF199DBF21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.xib in Resources */,
 				CF6ED82D2198823700625628 /* ChatTableViewCell.xib in Resources */,
 				CF6ED8142198679900625628 /* Main.storyboard in Resources */,
 			);
@@ -188,10 +206,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6ED8112198679900625628 /* ViewController.swift in Sources */,
+				CF199DB421A68E3500BEEDD1 /* GalleryViewController.swift in Sources */,
 				CFB7B7F9219C504C00B4BC59 /* CaptureViewController.swift in Sources */,
 				CF6ED824219868E400625628 /* ChatViewController.swift in Sources */,
 				CF6ED82C2198823700625628 /* ChatTableViewCell.swift in Sources */,
 				CF6ED80F2198679900625628 /* AppDelegate.swift in Sources */,
+				CF199DBE21A6A07B00BEEDD1 /* PhotosListCollectionViewCell.swift in Sources */,
 				CF6ED82921986D4F00625628 /* BottomChatView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
