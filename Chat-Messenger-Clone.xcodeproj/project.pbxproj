@@ -65,6 +65,8 @@
 		CF6ED8022198679800625628 = {
 			isa = PBXGroup;
 			children = (
+				CF6ED80E2198679900625628 /* AppDelegate.swift */,
+				CFFAC2BF21A804D800DA49DA /* Models */,
 				CF6ED80D2198679900625628 /* Chat-Messenger-Clone */,
 				CF6ED80C2198679900625628 /* Products */,
 			);
@@ -81,20 +83,12 @@
 		CF6ED80D2198679900625628 /* Chat-Messenger-Clone */ = {
 			isa = PBXGroup;
 			children = (
-				CF6ED8202198689300625628 /* Models */,
 				CF6ED8212198689900625628 /* Views */,
 				CF6ED822219868A300625628 /* Controllers */,
 				CF6ED8152198679900625628 /* Assets.xcassets */,
 				CF6ED81A2198679900625628 /* Info.plist */,
 			);
 			path = "Chat-Messenger-Clone";
-			sourceTree = "<group>";
-		};
-		CF6ED8202198689300625628 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		CF6ED8212198689900625628 /* Views */ = {
@@ -111,7 +105,6 @@
 		CF6ED822219868A300625628 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CF6ED80E2198679900625628 /* AppDelegate.swift */,
 				CF6ED8102198679900625628 /* ViewController.swift */,
 				CF6ED823219868E400625628 /* ChatViewController.swift */,
 				CFB7B7F8219C504C00B4BC59 /* CaptureViewController.swift */,
@@ -129,6 +122,13 @@
 				CF6ED82A2198823700625628 /* ChatTableViewCell.swift */,
 			);
 			path = "Chat VC";
+			sourceTree = "<group>";
+		};
+		CFFAC2BF21A804D800DA49DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

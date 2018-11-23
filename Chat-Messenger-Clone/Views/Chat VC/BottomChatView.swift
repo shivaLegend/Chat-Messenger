@@ -14,7 +14,7 @@ protocol BottomChatViewDelegate {
   func sendMessage()
   func openCamera()
   func openGallery()
-
+    func openVoice()
 }
 
 class BottomChatView: UIView {
@@ -63,7 +63,7 @@ class BottomChatView: UIView {
     delegate?.openGallery()
   }
   @IBAction func voiceClickButton(_ sender: Any) {
-        print("click voice")
+        delegate?.openVoice()
     }
 }
 
