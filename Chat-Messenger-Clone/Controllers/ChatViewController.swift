@@ -102,41 +102,21 @@ class ChatViewController: UIViewController {
         
         setupRecorder()
     }
-    @IBAction func ActionRecord(sender: AnyObject) {
-        if sender.titleLabel?!.text == "Record"{
-            
-            soundRecorder.record()
-            sender.setTitle("Stop", for: .normal)
-            
-            ButtonPlay.isEnabled = false
-            
-        }
-        else{
-            
-            soundRecorder.stop()
-            sender.setTitle("Record", for: .normal)
-            ButtonPlay.isEnabled = true
-        }
+    
+    func recordAudio() {
+        
+        soundRecorder.record()
+        
         
     }
-    
-    @IBAction func ActionPlay(sender: AnyObject) {
+    func stopAudio(){
+        soundRecorder.stop()
         
-        if sender.titleLabel?!.text == "Play" {
-            
-            ButttonRecord.isEnabled = false
-            sender.setTitle("Stop", for: .normal)
-            
-            preparePlayer()
-            SoundPlayer.play()
-            
-        }
-        else{
-            
-            SoundPlayer.stop()
-            sender.setTitle("Play", for: .normal)
-            
-        }
+    }
+    func playAudio() {
+        
+        preparePlayer()
+        SoundPlayer.play()
         
     }
     
@@ -144,15 +124,16 @@ class ChatViewController: UIViewController {
         
         if sender.state == .ended {
             print("UIGestureRecognizerStateEnded")
-            
+            stopAudio()
+            playAudio()
         }
         else if sender.state == .began {
             print("UIGestureRecognizerStateBegan.")
-            
+            recordAudio()
             
         } else if sender.state == .changed {
             print("gesture long changed")
-            print(sender.location(in: view.superview))
+            
         }
     }
     
@@ -222,7 +203,7 @@ class ChatViewController: UIViewController {
             
         }
     }
-
+    
     func grabPhotos() {
         imageArray = []
         DispatchQueue.global(qos: .background ).async {
@@ -240,7 +221,7 @@ class ChatViewController: UIViewController {
             let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
             print(fetchResult)
             print(fetchResult.count)
-
+            
             if fetchResult.count > 0 {
                 for i in 0..<fetchResult.count {
                     imgManager.requestImage(for: fetchResult.object(at: i) as PHAsset, targetSize: CGSize(width: (UIScreen.main.bounds.width - 10)/2, height: (UIScreen.main.bounds.width - 10)/2), contentMode: .aspectFit, options: requestOptions, resultHandler: { (image, error) in
@@ -330,7 +311,7 @@ extension ChatViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-   
+    
     
     
 }

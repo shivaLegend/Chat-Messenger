@@ -13,6 +13,10 @@ class GalleryViewController: UIViewController {
     var countSelected = 0
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var sendImageView: UIImageView!
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

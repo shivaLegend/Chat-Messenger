@@ -70,28 +70,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mP-69-JWN">
-                                <rect key="frame" x="0.0" y="264" width="414" height="44"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.85098039219999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="GcH-NZ-cDW"/>
-                                </constraints>
-                                <state key="normal" title="Record"/>
-                                <connections>
-                                    <action selector="ActionRecordWithSender:" destination="Ec7-xP-keQ" eventType="touchUpInside" id="kxJ-kQ-zQ7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvu-F7-Tm5">
-                                <rect key="frame" x="0.0" y="346" width="414" height="44"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.85098039219999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="YVA-6Y-Ma3"/>
-                                </constraints>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="ActionPlayWithSender:" destination="Ec7-xP-keQ" eventType="touchUpInside" id="R9O-GA-f28"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIj-fj-HZD" userLabel="BottomView" customClass="BottomChatView" customModule="Chat_Messenger_Clone" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -150,28 +128,20 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Zdx-7i-ijW" secondAttribute="trailing" id="9B0-Yv-MXi"/>
-                            <constraint firstItem="4mP-69-JWN" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="G2q-xN-cjP"/>
                             <constraint firstItem="gIj-fj-HZD" firstAttribute="top" secondItem="Zdx-7i-ijW" secondAttribute="bottom" id="HiU-JQ-BW9"/>
                             <constraint firstItem="gIj-fj-HZD" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="Hlj-Bt-goN"/>
                             <constraint firstAttribute="trailing" secondItem="63p-Y1-eE8" secondAttribute="trailing" id="IH3-Xf-7XL"/>
                             <constraint firstAttribute="trailing" secondItem="gIj-fj-HZD" secondAttribute="trailing" id="MaH-gl-U8l"/>
-                            <constraint firstItem="qdZ-Yg-iDE" firstAttribute="top" secondItem="gIj-fj-HZD" secondAttribute="bottom" id="OyP-y7-wKk"/>
                             <constraint firstItem="63p-Y1-eE8" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="bQ2-xn-Lfg"/>
+                            <constraint firstAttribute="bottom" secondItem="gIj-fj-HZD" secondAttribute="bottom" id="ehJ-Vx-nKt"/>
                             <constraint firstItem="Zdx-7i-ijW" firstAttribute="top" secondItem="Xc3-Cx-ugA" secondAttribute="top" id="iR6-rX-T8C"/>
                             <constraint firstItem="63p-Y1-eE8" firstAttribute="top" secondItem="gIj-fj-HZD" secondAttribute="bottom" id="j43-yo-mnz"/>
-                            <constraint firstItem="4mP-69-JWN" firstAttribute="top" secondItem="oHs-pB-KTG" secondAttribute="bottom" constant="200" id="m0j-8H-BOt"/>
                             <constraint firstItem="Zdx-7i-ijW" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="o0j-vS-pzH"/>
-                            <constraint firstAttribute="trailing" secondItem="4mP-69-JWN" secondAttribute="trailing" id="rFS-Ey-Fgv"/>
-                            <constraint firstItem="tvu-F7-Tm5" firstAttribute="leading" secondItem="Xc3-Cx-ugA" secondAttribute="leading" id="ts1-V9-ZIo"/>
-                            <constraint firstAttribute="trailing" secondItem="tvu-F7-Tm5" secondAttribute="trailing" id="v1c-FQ-cFT"/>
-                            <constraint firstItem="tvu-F7-Tm5" firstAttribute="top" secondItem="4mP-69-JWN" secondAttribute="bottom" constant="38" id="yjh-dP-SUy"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ButtonPlay" destination="tvu-F7-Tm5" id="5ku-va-3dy"/>
-                        <outlet property="ButttonRecord" destination="4mP-69-JWN" id="1Xa-O1-zcQ"/>
                         <outlet property="bottomView" destination="gIj-fj-HZD" id="Pvx-Az-n0Q"/>
-                        <outlet property="bottomViewBottom" destination="OyP-y7-wKk" id="Z6N-I9-48f"/>
+                        <outlet property="bottomViewBottom" destination="ehJ-Vx-nKt" id="735-DL-aUb"/>
                         <outlet property="chatTableView" destination="Zdx-7i-ijW" id="nDB-QN-TrG"/>
                         <outlet property="galleryCollectionView" destination="wqZ-Db-AaM" id="WIL-xV-eON"/>
                         <outlet property="galleryView" destination="63p-Y1-eE8" id="OZw-js-mg9"/>

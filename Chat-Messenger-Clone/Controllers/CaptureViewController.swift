@@ -168,7 +168,6 @@ class CaptureViewController: UIViewController {
             initCricle()
             print("begin")
             startRecording()
-//            addCircleView(duration: 4)
             
         case .changed:
             print("change")
